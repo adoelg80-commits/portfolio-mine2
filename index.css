@@ -317,15 +317,6 @@ html, body {
 /* FRAME WORKMATE                                          */
 /* ======================================================= */
 
-
-.workmate-angel-bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 430px;
-    height: 932px;
-    z-index: 1;
-}
 .workmate-angel-bg img {
     width: 100%;
     height: 100%;
