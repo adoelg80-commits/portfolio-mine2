@@ -22,38 +22,32 @@
             <img src="./images/gemini fly crop tanpa bulan.png" alt="Angel Terbang Gemini Back">
         </a>
 
-        <div style="width: 100%; padding: 0 20px; box-sizing: border-box; overflow-y: auto; max-height: 450px; margin-top: 20px;">
-            
-            <div style="text-align: center; margin-bottom: 30px; padding-top: 20px;">
-                <h3 style="color: #fff; font-family: sans-serif; margin-bottom: 10px; font-size: 16px;">Slide Menu Bunma (Dimsum)</h3>
-                <iframe width="100%" height="220" src="https://www.youtube.com/embed/iFwHP9POAyA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);"></iframe>
+        <div id="rectangle4">
+            <div id="video-wrapper" style="width: 100%; height: 100%;">
+                <iframe id="main-video-player" 
+                        src="https://www.youtube.com/embed/iFwHP9POAyA?enablejsapi=1&rel=0&autoplay=0" 
+                        title="MINE Video Player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        style="width: 100%; height: 100%; border: none; border-radius: 12px;">
+                </iframe>
             </div>
-
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h3 style="color: #fff; font-family: sans-serif; margin-bottom: 10px; font-size: 16px;">BAF SBY</h3>
-                <iframe width="100%" height="220" src="https://www.youtube.com/embed/u1fMuRVqOps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);"></iframe>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h3 style="color: #fff; font-family: sans-serif; margin-bottom: 10px; font-size: 16px;">BAF BPP</h3>
-                <iframe width="100%" height="220" src="https://www.youtube.com/embed/anNmdpqBGp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);"></iframe>
-            </div>
-
         </div>
 
-        <div class="slider-zone-android-moving" style="margin-top: 10px;">
+        <div class="slider-zone-android-moving">
             <div class="frame-slide-black-bg-moving">
                 <img src="./images/BACKROND SLIDE BLACK.png" alt="Background Slide Black">
             </div>
 
             <div class="slider-horizontal-scroll-moving">
-                <div class="video-box">
+                <div class="video-box" onclick="playVideo('u1fMuRVqOps')" style="cursor: pointer;">
                     <img src="./images/video baf sby.png" alt="Icon BAF SBY">
                 </div>
-                <div class="video-box">
+                <div class="video-box" onclick="playVideo('iFwHP9POAyA')" style="cursor: pointer;">
                     <img src="./images/video dimsum.png" alt="Icon Dimsum">
                 </div>
-                <div class="video-box">
+                <div class="video-box" onclick="playVideo('anNmdpqBGp8')" style="cursor: pointer;">
                     <img src="./images/video baf bpp.png" alt="Icon BAF BPP">
                 </div>
             </div>
@@ -66,6 +60,7 @@
     </div>
 
     <script>
+    // 1. ENGINE PENGUNCI UKURAN LAYAR HP
     function lockFitLayar() {
         const container = document.querySelector('.app-container-moving');
         if (!container) return;
@@ -79,6 +74,45 @@
     }
     window.addEventListener('resize', lockFitLayar);
     window.addEventListener('DOMContentLoaded', lockFitLayar);
+
+    // 2. ENGINE LOGIKA KLIK TOMBOL (Langsung Mengubah Link Embed YouTube Secara Resmi)
+    function playVideo(youtubeID) {
+        const player = document.getElementById('main-video-player');
+        if(player) {
+            // Mengganti isi video iframe sesuai tombol yang diklik tanpa bikin error hantu
+            player.src = "https://www.youtube.com/embed/" + youtubeID + "?enablejsapi=1&rel=0&autoplay=1";
+        }
+    }
+
+    // 3. ENGINE KEMBALIKAN FUNGSI GESER SLIDER DI PC/LAPTOP
+    const slider = document.querySelector('.slider-horizontal-scroll-moving');
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'pointer';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'pointer';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    }
     </script>
 </body>
 </html>
