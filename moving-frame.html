@@ -25,12 +25,12 @@
         <div id="rectangle4">
             <div id="video-wrapper" style="width: 100%; height: 100%;">
                 <iframe id="main-video-player" 
-                        src="https://www.youtube.com/embed/iFwHP9POAyA?enablejsapi=1&rel=0&autoplay=0" 
+                        src="https://www.youtube.com/embed/anNmdpqBGp8?enablejsapi=1&rel=0&autoplay=0&mute=1" 
                         title="MINE Video Player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen 
-                        style="width: 100%; height: 100%; border: none; border-radius: 12px;">
+                        style="width: 100%; height: 100%; border: none;">
                 </iframe>
             </div>
         </div>
@@ -41,13 +41,13 @@
             </div>
 
             <div class="slider-horizontal-scroll-moving">
-                <div class="video-box" onclick="playVideo('u1fMuRVqOps')" style="cursor: pointer;">
+                <div class="video-box" onclick="playVideo('u1fMuRVqOps')">
                     <img src="./images/video baf sby.png" alt="Icon BAF SBY">
                 </div>
-                <div class="video-box" onclick="playVideo('iFwHP9POAyA')" style="cursor: pointer;">
+                <div class="video-box" onclick="playVideo('iFwHP9POAyA')">
                     <img src="./images/video dimsum.png" alt="Icon Dimsum">
                 </div>
-                <div class="video-box" onclick="playVideo('anNmdpqBGp8')" style="cursor: pointer;">
+                <div class="video-box" onclick="playVideo('anNmdpqBGp8')">
                     <img src="./images/video baf bpp.png" alt="Icon BAF BPP">
                 </div>
             </div>
@@ -60,7 +60,7 @@
     </div>
 
     <script>
-    // 1. ENGINE PENGUNCI UKURAN LAYAR HP
+    // ENGINE 1: PENGUNCI UKURAN LAYAR HP ITEL ABANG
     function lockFitLayar() {
         const container = document.querySelector('.app-container-moving');
         if (!container) return;
@@ -75,16 +75,26 @@
     window.addEventListener('resize', lockFitLayar);
     window.addEventListener('DOMContentLoaded', lockFitLayar);
 
-    // 2. ENGINE LOGIKA KLIK TOMBOL (Langsung Mengubah Link Embed YouTube Secara Resmi)
+    // REVISI POINT 2: Fungsi playVideo diubah biar langsung memutar link YouTube resmi (Bukan folder gambar lokal!)
+    const player = document.getElementById('main-video-player');
     function playVideo(youtubeID) {
-        const player = document.getElementById('main-video-player');
         if(player) {
-            // Mengganti isi video iframe sesuai tombol yang diklik tanpa bikin error hantu
             player.src = "https://www.youtube.com/embed/" + youtubeID + "?enablejsapi=1&rel=0&autoplay=1";
         }
     }
 
-    // 3. ENGINE KEMBALIKAN FUNGSI GESER SLIDER DI PC/LAPTOP
+    // Fungsi Zoom Foto Dokumentasi Abang Tetap Aman
+    function zoomThisPhoto(photoSrc) {
+        const zoomZone = document.getElementById('zone-zoom-photo');
+        const bigPhoto = document.getElementById('expanded-photo');
+        const angelBtn = document.getElementById('angel-moment');
+        
+        bigPhoto.src = photoSrc;
+        zoomZone.classList.add('fade-in-photo');
+        angelBtn.classList.add('angel-naik-mode');
+    }
+
+    // REVISI POINT 3: Memperbaiki nama class slider-moving agar mouse PC laptop ACER bisa dipake buat geser slider lagi!
     const slider = document.querySelector('.slider-horizontal-scroll-moving');
     if (slider) {
         let isDown = false;
