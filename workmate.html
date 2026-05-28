@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MINE - Workmates</title>
+    <link rel="stylesheet" href="index.css"> 
+    <style>
+        /* --- KANVAS KEKUASAAN WORKMATE (STANDAR HP ABANG 430x932) --- */
+        .workmate-page-container {
+            width: 430px;
+            height: 932px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        /* 1. Satu Gambar Background Gabungan Hasil Ekspor Figma Abang */
+        .workmate-main-bg {
+            position: absolute;
+            left: 0;
+            top: -18px;                /* Koordinat Y asli dari ekspor CSS Figma Abang */
+            width: 430px;
+            height: 968px;             /* Tinggi asli biar gak ketarik rasionya */
+            background: url('./images/welcom up.png') no-repeat;
+            background-size: 100% 100%;
+            z-index: 1;
+        }
+
+        /* 2. TOMBOL GAIB RECTANGLE 6 (Pemicu Kembali ke Home Utama) */
+        #rectangle6-gaib {
+            position: absolute;
+            left: 160px;               /* Koordinat X Pas di Tengah Perut Eneng */
+            top: 128px;                /* Koordinat Y Pas di Tengah Perut Eneng */
+            width: 109px;
+            height: 160px;
+            background: transparent;   /* Bening tanpa warna, murni gerbang gaib */
+            z-index: 10;               /* Wajib paling depan biar peka sentuhan jari */
+            cursor: pointer;
+        }
+
+        .gaib-link-workmate {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 3. TEKS PINKY KEDIP NEON (SUDAH NAIK MELEJIT KE ATAS NYELIP DI SPACE KOSONG) */
+        .text-pink-blink-workmate {
+            position: absolute;
+            left: 50%;
+            top: 540px;                /* <<< KOORDINAT SAKTI BARU: PAS DI TENGAH ANTARA DUA BLOK TEKS PUTIH */
+            transform: translateX(-50%);
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;           /* Sedikit disesuaikan agar proporsional dan ramping */
+            letter-spacing: 0.18em;
+            color: #FF00E5;            /* Pink Neon Kebanggaan */
+            text-align: center;
+            white-space: nowrap;
+            z-index: 5;
+            text-shadow: 0 0 10px rgba(255, 0, 229, 0.8);
+            animation: neonBlinkHorizontal 1.5s infinite alternate; /* Efek Kedip */
+        }
+
+        @keyframes neonBlinkHorizontal {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container-review">
+        
+        <div class="workmate-main-bg">
+            
+            <div id="rectangle6-gaib">
+                <a href="index.html" class="gaib-link-workmate"></a>
+            </div>
+
+        </div>
+
+        <div class="text-pink-blink-workmate">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+<script>
+    function autoLockViewport() {
+        const containers = document.querySelectorAll('[class^="app-container"]');
+        const targetWidth = 430;
+        const targetHeight = 932; 
+        
+        const scaleX = window.innerWidth / targetWidth;
+        const scaleY = window.innerHeight / targetHeight;
+        
+        const finalScale = Math.min(scaleX, scaleY, 1); 
+        
+        containers.forEach(container => {
+            container.style.transform = `scale(${finalScale})`;
+            container.style.transformOrigin = 'center center';
+        });
+    }
+
+    window.addEventListener('resize', autoLockViewport);
+    window.addEventListener('DOMContentLoaded', autoLockViewport);
+</script>
+</body>
+</html>

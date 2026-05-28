@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review - Soundsation Concert Series</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <div class="app-container-review">
+        
+        <a href="./painting-space.html" class="btn-back-pita-timeline" style="top: 23px;">
+            <img src="./images/pita back.png" alt="Back to Painting Space">
+        </a>
+
+        <div class="vertical-scroll-zone">
+            <div class="zoom-wrapper backend-sound-stack">
+                <img src="./images/MLTR.png" class="sound-part-one-img" alt="Soundsation MLTR">
+                <img src="./images/slank.png" class="sound-part-two-img" alt="Soundsation Slank">
+            </div>
+        </div>
+
+        <div class="text-pink-blink-review">
+            DBL-CLICK TO ZOOM ON CURSOR / DRAG ANYWHERE
+        </div>
+
+    </div>
+
+    <script>
+        const zone = document.querySelector('.vertical-scroll-zone');
+        const wrapper = document.querySelector('.zoom-wrapper');
+        const img = document.querySelector('.sound-part-one'); 
+        
+        let isDown = false;
+        let startX, startY;
+        let scrollLeft, scrollTop;
+        let isZoomed = false;
+
+        // --- 1. MOUSE DRAG ENGINE ---
+        zone.addEventListener('mousedown', (e) => {
+            if (e.target.tagName === 'IMG') e.preventDefault(); 
+            isDown = true;
+            zone.style.cursor = 'grabbing';
+            startX = e.pageX - zone.offsetLeft;
+            startY = e.pageY - zone.offsetTop;
+            scrollLeft = zone.scrollLeft;
+            scrollTop = zone.scrollTop;
+        });
+
+        zone.addEventListener('mouseleave', () => {
+            isDown = false;
+            zone.style.cursor = isZoomed ? 'zoom-out' : 'grab';
+        });
+
+        zone.addEventListener('mouseup', () => {
+            isDown = false;
+            zone.style.cursor = isZoomed ? 'zoom-out' : 'grab';
+        });
+
+        zone.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - zone.offsetLeft;
+            const y = e.pageY - zone.offsetTop;
+            const walkX = (x - startX) * 1.5; 
+            const walkY = (y - startY) * 1.5; 
+            zone.scrollLeft = scrollLeft - walkX;
+            zone.scrollTop = scrollTop - walkY;
+        });
+
+        // --- 2. DOUBLE CLICK ZOOM ENGINE ---
+        zone.addEventListener('dblclick', (e) => {
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                const rect = zone.getBoundingClientRect();
+                const offsetX = e.clientX - rect.left + zone.scrollLeft;
+                const offsetY = e.clientY - rect.top + zone.scrollTop;
+                
+                const pctX = (offsetX / img.offsetWidth) * 100;
+                const pctY = (offsetY / wrapper.offsetHeight) * 100; 
+                wrapper.style.transformOrigin = `${pctX}% ${pctY}%`;
+                
+                wrapper.classList.add('zoomed-active');
+                zone.style.overflowX = 'auto'; 
+                zone.style.cursor = 'zoom-out';
+                
+                setTimeout(() => {
+                    zone.scrollTop = offsetY * 1.8 - (zone.offsetHeight / 2);
+                    zone.scrollLeft = offsetX * 1.8 - (zone.offsetWidth / 2);
+                }, 50);
+            } else {
+                wrapper.style.transformOrigin = 'top center';
+                wrapper.classList.remove('zoomed-active');
+                zone.style.overflowX = 'hidden';
+                zone.style.cursor = 'grab';
+                zone.scrollLeft = 0;
+            }
+        });
+    </script>
+<script src="script.js"></script>
+</body>
+</html>

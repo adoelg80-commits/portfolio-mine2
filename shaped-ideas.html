@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MINE - Shaped Ideas</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <div class="app-container-shaped">
+        
+        <div class="bg-nebula-red">
+            <img src="./images/Backround nebula red.png" alt="Nebula Red">
+        </div>
+
+        <div class="letter-shaped-title">
+            <img src="./images/Letter Shaped Idea.png" alt="Shaped Ideas Text">
+        </div>
+
+       <a href="./credit-shaped-ideas.html" class="btn-credit-atas-kanan">
+            <img src="./images/credit text putih.png" alt="Credit Text">
+        </a>
+
+        <a href="./archives.html" class="gemini-angel-fly-btn">
+            <img src="./images/gemini fly crop tanpa bulan.png" alt="Gemini Angel Fly Back">
+        </a>
+
+        <div class="slider-zone-android">
+            
+            <div class="frame-slide-black-bg">
+                <img src="./images/BACKROND SLIDE BLACK.png" alt="Background Slide Black">
+            </div>
+
+            <div class="slider-horizontal-scroll">
+                <div class="logo-box">
+                    <a href="./review-andalas.html">
+                        <img src="./images/icon andalas.png" alt="andalas">
+                    </a>
+                </div>
+              <div class="logo-box">
+                    <a href="./review-freelancer.html">
+                        <img src="./images/icon freelance.png" alt="freelancer contests">
+                    </a>
+                </div>
+                
+                <div class="logo-box">
+                <a href="./review-dimsum.html" class="logo-box">
+                    <img src="./images/icon dimsum bunma.png" alt="dimsum bunma">
+                </a>
+                </div>
+                
+                <div class="logo-box">
+                    <a href="./review-elc.html">
+                        <img src="./images/icon elc.png" alt="elc">
+                    </a>
+                </div>
+                <div class="logo-box">
+                    <a href="./review-majalah.html">
+                        <img src="./images/icon majalah.png" alt="layout majalah">
+                    </a>
+                </div>
+
+                <div class="logo-box">
+                <a href="./review-pon.html" class="logo-box">
+                    <img src="./images/icon buletin pon.png" alt="buletin pon">
+                </a>
+                </div>
+                <div class="logo-box">
+                    <a href="./review-suzuki.html">
+                        <img src="./images/icon suzuki.png" alt="suzuki">
+                    </a>
+                </div>
+                <a href="./review-timeline.html" class="logo-box">
+                    <img src="./images/icon timeline.png" alt="timeline">
+                </a>
+               <div class="logo-box">
+                    <a href="./review-csurabaya.html">
+                        <img src="./images/icon csurabaya.png" alt="csurabaya">
+                    </a>
+                </div>
+                <div class="logo-box">
+                    <a href="./review-grab.html">
+                        <img src="./images/icon grab.png" alt="grab bus">
+                    </a>
+                </div>
+                <a href="./review-semen.html" class="logo-box">
+                    <img src="./images/icon semen.png" alt="semen">
+                </a>
+            </div>
+
+        </div>
+
+        <div class="text-pink-blink-bawah">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider-horizontal-scroll');
+        if (slider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                slider.style.cursor = 'grabbing';
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Cari elemen gambar bidadarinya
+    const karakterEneng = document.querySelector('.gemini-angel-fly-btn');
+    
+    // 2. Cari elemen tombol Back Abang. 
+    // Kita targetkan tag tautan <a> yang mengarah ke archives.html
+    const tombolBack = document.querySelector('a[href="archives.html"]');
+
+    if (tombolBack && karakterEneng) {
+        tombolBack.addEventListener('click', function(e) {
+            // Tahan!!! Jangan pindah halaman dulu, biarkan si Eneng akting turun
+            e.preventDefault(); 
+            
+            // Suntik kelas CSS turun-lagi ke tubuh bidadari
+            karakterEneng.classList.add('turun-lagi'); 
+            
+            // Beri waktu 800 milidetik (0.8 detik) buat dia merosot turun, baru pindah halaman
+            setTimeout(function() {
+                window.location.href = "archives.html";
+            }, 800);
+            <script src="script.js"></script>
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINE - Frame Moment</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="app-container-frame">
+        
+        <div class="bg-nebula-violeet">
+            <img src="./images/Background nebula violeet.png" alt="Nebula Red">
+        </div>
+
+        <div class="letter-frame-title">
+            <img src="./images/Text Frame Moment photo.png" alt="Frame Moment Text">
+        </div>
+
+        <div id="main-photo-zoom-zone">
+            <img id="expanded-photo" src="" alt="Zoomed Photo">
+        </div>
+
+        <a href="momentum.html" id="angel-moment" class="gemini-angel-fly-btn">
+            <img src="./images/gemini fly crop tanpa bulan.png" alt="Gemini Angel Fly Back">
+        </a>
+
+
+        <div class="slider-zone-android">
+            
+            <div class="frame-slide-black-bg">
+                <img src="./images/BACKROND SLIDE BLACK.png" alt="Background Slide Black">
+            </div>
+
+            <div class="slider-horizontal-scroll">
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/hj alung semen tonasa.jpg')">
+                        <img src="./images/hj alung semen tonasa.jpg" alt="hj alung">
+                    </div>
+
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSCN2544.JPG')">
+                        <img src="./images/DSCN2544.JPG" alt="DSCN2544">
+                    </div>
+                
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSCN2744.JPG')">
+                        <img src="./images/DSCN2744.JPG" alt="DSCN2744">
+                    </div>
+ 
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSC_0385.JPG')">
+                        <img src="./images/DSC_0385.JPG" alt="0385">
+                    </div>
+                    
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/P6304244.JPG')">
+                        <img src="./images/P6304244.JPG" alt="P6304244">
+                    </div>
+                
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/IMG_1840.JPG')">
+                        <img src="./images/IMG_1840.JPG" alt="IMG_1840">
+                    </div>
+               
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/P6304214.JPG')">
+                        <img src="./images/P6304214.JPG" alt="P6304214">
+                    </div>
+
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/P5088054.JPG')">
+                        <img src="./images/P5088054.JPG" alt="P5088054">
+                    </div>
+
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSCN3833.JPG')">
+                        <img src="./images/DSCN3833.JPG" alt="DSCN3833">
+                    </div>
+                
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/P8207336.JPG')">
+                        <img src="./images/P8207336.JPG" alt="P8207336">
+                    </div>
+
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSCN2816.JPG')">
+                        <img src="./images/DSCN2816.JPG" alt="DSCN2816">
+                    </div>
+               
+                    <div class="logo-box" onclick="zoomThisPhoto('./images/DSC_0371.JPG')">
+                        <img src="./images/DSC_0371.JPG" alt="DSC_0371">
+                    </div>
+                    
+                </div> <div class="text-pink-blink-bawah">
+                    TOUCH body angel for &lt; BACK &gt;
+                </div>
+        </div>
+   <script>
+      // 1. ENGINE LOGIKA TRANSISI FOTO (ENENG NAIK KE ATAS, BUKAN HANTU)
+        function zoomThisPhoto(photoSrc) {
+            const zoomZone = document.getElementById('main-photo-zoom-zone');
+            const bigPhoto = document.getElementById('expanded-photo');
+            const angelBtn = document.getElementById('angel-moment');
+            
+            bigPhoto.src = photoSrc;
+            zoomZone.classList.add('fade-in-photo');
+            
+            // Perintah buat Eneng melesat ke atas!
+            angelBtn.classList.add('angel-naik-mode');
+        }
+
+        // 2. ENGINE KEMBALIKAN FUNGSI GESER SLIDER DI PC/LAPTOP
+        const slider = document.querySelector('.slider-horizontal-scroll');
+        if (slider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                slider.style.cursor = 'grabbing';
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+<script src="script.js"></script>
+</body>
+</html>

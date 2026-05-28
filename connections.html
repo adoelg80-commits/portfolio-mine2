@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MINE - Connections</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <div class="app-container-review">
+        
+        <div class="connections-main-bg">
+            
+            <div id="pitaback-action">
+                <a href="index.html" class="back-link-induk"></a>
+            </div>
+
+            <div id="rectangle1-gaib">
+                <a href="https://mail.google.com/mail/" target="_blank" class="gaib-link-conn"></a>
+            </div>
+
+            <div id="rectangle2-gaib">
+                <a href="https://www.linkedin.com/in/adoel-waee-61645298/" target="_blank" class="gaib-link-conn"></a>
+            </div>
+
+            <div id="rectangle3-gaib">
+                <a href="https://online.fliphtml5.com/eepxz/vgsm/" target="_blank" class="gaib-link-conn"></a>
+            </div>
+        </div>
+    </div>
+<script>
+    function autoLockViewport() {
+        const containers = document.querySelectorAll('[class^="app-container"]');
+        const targetWidth = 430;
+        const targetHeight = 932; 
+        
+        const scaleX = window.innerWidth / targetWidth;
+        const scaleY = window.innerHeight / targetHeight;
+        
+        const finalScale = Math.min(scaleX, scaleY, 1); 
+        
+        containers.forEach(container => {
+            container.style.transform = `scale(${finalScale})`;
+            container.style.transformOrigin = 'center center';
+        });
+    }
+
+    window.addEventListener('resize', autoLockViewport);
+    window.addEventListener('DOMContentLoaded', autoLockViewport);
+</script>
+</body>
+</html>

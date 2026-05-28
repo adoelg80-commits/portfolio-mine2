@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MINE - Home</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="logo-area">
+            <img src="./images/text_mine_2.png" alt="MINE Logo" class="img-logo">
+        </header>
+        
+        <div class="profile-area">
+            <img src="./images/cover_polos_2.png" alt="Profile" class="img-profile">
+        </div>
+
+        <nav class="nav-area">
+            <a href="archives.html" class="nav-item archives">
+                <img src="./images/frame_1.png" alt="Archives" class="menu-img">
+            </a>
+            <a href="connections.html" class="nav-item connected">
+                <img src="./images/frame_2.png" alt="Connected" class="menu-img">
+            </a>
+            <a href="workmate.html" class="nav-item workmate">
+                <img src="./images/frame_3.png" alt="Workmate" class="menu-img">
+            </a>
+            <a href="credit-mine.html" class="nav-item credits">
+                <img src="./images/frame_4.png" alt="Credits" class="menu-img">
+            </a>
+        </nav>
+    </div>
+<script>
+    function lockFitLayar() {
+        const container = document.querySelector('.app-container');
+        if (!container) return;
+
+        // Hitung rasio layar HP Abang secara real-time
+        const skalaX = window.innerWidth / 430;
+        const skalaY = window.innerHeight / 932;
+
+        // Ambil skala terkecil biar PAS dan GAK LUBER
+        const skalaFinal = Math.min(skalaX, skalaY);
+
+        // Paksa kunci mati ukurannya di HP!
+        container.style.transform = `scale(${skalaFinal})`;
+    }
+
+    // Jalankan otomatis pas web dibuka dan pas layar berubah
+    window.addEventListener('DOMContentLoaded', lockFitLayar);
+    window.addEventListener('resize', lockFitLayar);
+</script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINE - Momentum</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="app-container-momentum">
+        
+        <div class="nebula-violet-layer">
+            <img src="./images/Background nebula violeet.png" alt="Nebula Violet" class="img-nebula-violet-asli">
+        </div>
+
+        <div class="frame-tombol-bg">
+            <img src="./images/Background slide 2.png" alt="Frame Slide 2" class="img-frame-bg">
+        </div>
+
+        <header class="momentum-header-title">
+            <img src="./images/Text Momentum.png" alt="Text Momentum" class="img-momentum-title">
+        </header>
+
+        <nav class="momentum-nav-group">
+            <a href="./moving-frame.html" class="btn-mom-item videografi-btn">
+                <img src="./images/Tombol videografi.png" alt="Videografi" class="mom-btn-img">
+            </a>
+            <a href="./frame-moment.html" class="btn-mom-item fotografi-btn">
+                <img src="./images/Tombol photografi.png" alt="Fotografi" class="mom-btn-img">
+            </a>
+            <a href="./credit-momentum.html" class="btn-mom-item credits-btn">
+                <img src="./images/Tombol credits 1.png" alt="Credits" class="mom-btn-img">
+            </a>
+        </nav>
+
+        <a href="./archives.html" class="btn-back-angel-momentum">
+            <img src="./images/angel dudduk 1.png" alt="Angel Back Button" class="img-angel-back-click">
+        </a>
+
+        <div class="teks-kedip-pink">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+<script>
+    function autoLockViewport() {
+        // Mencari semua class yang berawalan "app-container"
+        const containers = document.querySelectorAll('[class^="app-container"]');
+        const targetWidth = 430;
+        const targetHeight = 932; 
+        
+        const scaleX = window.innerWidth / targetWidth;
+        const scaleY = window.innerHeight / targetHeight;
+        
+        // Mengunci skala terkecil agar pas di frame HP
+        const finalScale = Math.min(scaleX, scaleY, 1); 
+        
+        containers.forEach(container => {
+            container.style.transform = `scale(${finalScale})`;
+        });
+    }
+
+    // Jalankan otomatis saat web dimuat dan saat layar di-resize
+    window.addEventListener('resize', autoLockViewport);
+    window.addEventListener('DOMContentLoaded', autoLockViewport);
+    </script>
+</body>
+</html>

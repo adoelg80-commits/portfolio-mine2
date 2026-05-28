@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINE - Credit Archives</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="app-container-review">
+        
+        <div class="credit-main-bg">
+            
+            <div id="rectangle5-gaib">
+                <a href="archives.html" class="gaib-link"></a>
+            </div>
+
+        </div>
+
+        <div class="text-pink-rotate-credit">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+    <script>
+        function autoLockViewport() {
+            const containers = document.querySelectorAll('[class^="app-container"]');
+            const targetWidth = 430;
+            const targetHeight = 932; 
+            
+            const scaleX = window.innerWidth / targetWidth;
+            const scaleY = window.innerHeight / targetHeight;
+            
+            const finalScale = Math.min(scaleX, scaleY, 1); 
+            
+            containers.forEach(container => {
+                container.style.transform = `scale(${finalScale})`;
+                container.style.transformOrigin = 'center center';
+            });
+        }
+
+        window.addEventListener('resize', autoLockViewport);
+        window.addEventListener('DOMContentLoaded', autoLockViewport);
+    </script>
+</body>
+</html>

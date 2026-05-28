@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MINE - Archives</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="nebula-layer">
+            <img src="./images/Background nebula.png" alt="Nebula Galaxy" class="img-nebula-asli">
+        </div>
+
+        <div class="frame-tombol-bg">
+            <img src="./images/Background slide 2.png" alt="Frame Background" class="img-frame-bg">
+        </div>
+
+        <header class="archive-header-title">
+            <img src="./images/Text Archives 2.png" alt="Archives Title" class="img-archive-title">
+        </header>
+
+        <nav class="archive-nav-group">
+            <a href="./shaped-ideas.html" class="btn-arch-item si-1">
+                <img src="./images/Tombol SI 1.png" alt="Shaped Ideas" class="arch-btn-img">
+            </a>
+            <a href="./painting-space.html" class="btn-arch-item ps-1">
+                <img src="./images/Tombol PS 1.png" alt="Painting Space" class="arch-btn-img">
+            </a>
+            <a href="./momentum.html" class="btn-arch-item moment-1">
+                <img src="./images/Tombol Moment 1.png" alt="Momentum" class="arch-btn-img">
+            </a>
+            <a href="./credit-archives.html" class="btn-arch-item credits-1">
+                <img src="./images/Tombol credits 1.png" alt="Credits" class="arch-btn-img">
+            </a>
+        </nav>
+
+        <a href="./index.html" class="angel-back-button">
+            <img src="./images/angel dudduk 1.png" alt="Angel Dudduk Back" class="img-angel-revisi">
+        </a>
+
+        <div class="teks-kedip-pink">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+<script>
+    function lockFitLayar() {
+        const container = document.querySelector('.app-container');
+        if (!container) return;
+
+        // Hitung rasio layar HP Abang secara real-time
+        const skalaX = window.innerWidth / 430;
+        const skalaY = window.innerHeight / 932;
+
+        // Ambil skala terkecil biar PAS dan GAK LUBER
+        const skalaFinal = Math.min(skalaX, skalaY);
+
+        // Paksa kunci mati ukurannya di HP!
+        container.style.transform = `scale(${skalaFinal})`;
+    }
+
+    // Jalankan otomatis pas web dibuka dan pas layar berubah
+    window.addEventListener('DOMContentLoaded', lockFitLayar);
+    window.addEventListener('resize', lockFitLayar);
+</script>
+</body>
+</html>

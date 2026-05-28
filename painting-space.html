@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINE - Painting Space</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+<div class="animasi-terbang">
+    </div>
+    <div class="app-container-painting">
+        
+        <div class="bg-nebula-green">
+            <img src="./images/Backround nebula green.png" alt="Nebula Green">
+        </div>
+
+        <a href="./credit-painting-space.html" class="btn-credit-atas-kanan">
+            <img src="./images/credit text putih.png" alt="Credit Text">
+        </a> 
+
+        <div class="letter-shaped-title">
+            <img src="./images/Letter Painting Space.png" alt="Painting Space Text">
+        </div>
+
+        <a href="./archives.html" class="gemini-angel-fly-btn">
+            <img src="./images/gemini fly crop tanpa bulan.png" alt="Gemini Angel Fly Back">
+        </a>
+
+        <div class="slider-zone-android">
+            
+            <div class="frame-slide-black-bg">
+                <img src="./images/BACKROND SLIDE BLACK.png" alt="Background Slide Black">
+            </div>
+
+            <div class="slider-horizontal-scroll">
+                
+                <a href="./review-mlg.html" class="logo-box">
+                    <img src="./images/icon mlg.png" alt="MLG">
+                </a>
+                <a href="./review-bigmall.html" class="logo-box">
+                    <img src="./images/icon big.png" alt="BIGMALL">
+                </a>
+                <a href="./review-clubmild.html" class="logo-box">
+                    <img src="./images/icon club.png" alt="CLUB MILD">
+                </a>
+                <a href="./review-isiana.html" class="logo-box">
+                    <img src="./images/icon A.png" alt="AMILD">
+                </a>
+                <a href="./review-masplane.html" class="logo-box">
+                    <img src="./images/icon masplane.png" alt="MASPLANE">
+                </a>
+
+                <a href="./review-unity.html" class="logo-box">
+                    <img src="./images/icon unity.png" alt="UNITY">
+                </a>
+                <a href="./review-anya.html" class="logo-box">
+                    <img src="./images/icon anya.png" alt="ANYA BEDROOM">
+                </a>
+                <a href="./review-baf.html" class="logo-box">
+                    <img src="./images/icon baf.png" alt="BAF">
+                </a>
+                <a href="./review-rsud.html" class="logo-box">
+                    <img src="./images/icon rsud.png" alt="RSUD">
+                </a>
+                <a href="./review-sound.html" class="logo-box">
+                    <img src="./images/icon sound.png" alt="SOUND">
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="text-pink-blink-bawah">
+            TOUCH body angel for &lt; BACK &gt;
+        </div>
+
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider-horizontal-scroll');
+        if (slider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                slider.style.cursor = 'grabbing';
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'pointer';
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+
+</body>
+</html>
