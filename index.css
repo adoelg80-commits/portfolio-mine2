@@ -1,5 +1,5 @@
 /* ======================================================= */
-/* [1] MASTER PONDASI ALGORITMA PROFESOR 3.1 (ANTI-GAGAL)  */
+/* [1] MASTER PONDASI AWAL RE-STORASI - AMAN & CENTER       */
 /* ======================================================= */
 * {
   margin: 0;
@@ -9,519 +9,133 @@
 }
 
 html, body {
-  background-color: #000000; 
-  width: 430px; 
-  height: 932px; 
-  height: 100dvh;           /* Mengunci tinggi layar real-time HP */
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;  /* Mengunci posisi di tengah kiri-kanan */
-  align-items: center;      /* Mengunci posisi di tengah atas-bawah */
-  overflow: hidden;         /* HAPUS SCROLLBAR: Biar layar kaku */
-  position: fixed;          /* LOCK: Biar halaman gak bisa ditarik ulur pake jempol */
+  justify-content: center;  
+  align-items: center;      
+  overflow: hidden;         
 }
 
 /* ======================================================= */
-/* [2] UNIVERSAL KANVAS - PAKEM SAMA DENGAN LUNACY ABANG   */
+/* [2] BLOCK FRAME 1: MAIN MENU (HOME MINE)                */
 /* ======================================================= */
 .app-container {
   position: relative;
-  width: 430px;              /* Lebar murni Lunacy */
-  height: 932px;             /* Tinggi murni Lunacy */
+  width: 430px;              
+  height: 966px;             
   background: transparent;       
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.6);
   overflow: hidden;
   flex-shrink: 0;
-  transform-origin: center center; /* Tumpuan kuncian pas di tengah */
-}
-/* ======================================================= */
-/* [3] SETTING STANDAR GAMBAR BACKGROUND DI TIAP FRAME     */
-/* ======================================================= */
-.profile-area, .nebula-layer, .frame-tombol-bg {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 430px;  
-  height: 932px; 
-  z-index: 1;
+  margin: 0 auto;            
 }
 
-.img-profile, .img-nebula-asli, .img-frame-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* Menjamin gambar pas utuh anti-gepeng */
+.logo-area {
+  position: absolute; 
+  left: 40px; 
+  top: 30px; 
+  width: 350px; 
+  height: 145px; 
+  z-index: 5;
 }
-
-
-/* ======================================================= */
-/* [4] KOORDINAT FRAME 1: MAIN MENU (HOME)                 */
-/* ======================================================= */
-.nav-item {
-  position: absolute;
-  z-index: 20;
-  text-decoration: none;
-  display: block;
+.img-logo { 
+  width: 350px;    
+  height: 145px; 
+  display: block; 
 }
-
 .menu-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: fill; 
   display: block;
 }
-
-/* Angka murni Lunacy Abang di Home */
-.nav-item.archives   { left: 266px; top: 210px; width: 120px; height: 20px; }
-.nav-item.connected  { left: 242px; top: 258px; width: 135px; height: 20px; }
-.nav-item.workmate   { left: 245px; top: 302px; width: 125px; height: 20px; }
-.nav-item.credits    { left: 282px; top: 348px; width: 95px;  height: 20px; }
-
-
-/* ======================================================= */
-/* [5] KOORDINAT FRAME 2: ARCHIVES GALAXY (BARU BERBARIS)  */
-/* ======================================================= */
-.archive-header-title {
-  position: absolute; 
-  left: 50px; top: 150px; width: 330px; height: 82px;
-  z-index: 5;
-}
-.img-archive-title { width: 100%; height: 100%; object-fit: contain; }
-
-.archive-nav-group { 
-  position: absolute; 
-  width: 430px; height: 932px; 
-  z-index: 10; top: 0; left: 0;
-}
-
-.btn-arch-item {
-  position: absolute;
-  z-index: 12;
-  text-decoration: none;
-  display: block;
-}
-.arch-btn-img { width: 100% !important; height: 100% !important; object-fit: contain; display: block; }
-
-/* Angka murni Lunacy Abang di Archives */
-.btn-arch-item.si-1       { left: 115px; top: 320px; width: 200px; height: 100px; }
-.btn-arch-item.ps-1       { left: 115px; top: 390px; width: 200px; height: 100px; }
-.btn-arch-item.moment-1   { left: 115px; top: 460px; width: 200px; height: 100px; }
-.btn-arch-item.credits-1  { left: 115px; top: 530px; width: 200px; height: 100px; }
-
-/* Aksesoris Angel Back & Teks Kedip */
-.angel-back-button {
-  position: absolute;
-  left: 140px; top: 680px; width: 150px; height: 150px;
-  z-index: 20; display: block;
-}
-.img-angel-revisi { width: 100%; height: 100%; object-fit: contain; }
-
-.teks-kedip-pink {
-  position: absolute;
-  width: 430px; text-align: center; bottom: 40px;
-  z-index: 25; font-family: sans-serif; font-size: 14px; font-weight: bold; color: #ff69b4; letter-spacing: 1px;
-  animation: blinkProfessional 1.5s infinite ease-in-out; 
-}
-@keyframes blinkProfessional { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-
-/* ======================================================= */
-/* FRAME 1: MAIN MENU PORTFOLIO - FULL UNLOCKED DIGIT      */
-/* ======================================================= */
-
-/* 1. AREA KOTAK LOGO MINE */
-.logo-area {
-  position: absolute;
-  left: 40px;       /* Ganti dengan koordinat X (Left) dari Lunacy */
-  top: 30px;        /* Ganti dengan koordinat Y (Top) dari Lunacy */
-  width: 350px;     /* Ganti dengan lebar Kotak Logo dari Lunacy */
-  height: 145px;     /* Sesuaikan dengan tinggi Kotak Logo */
-  z-index: 5;
-}
-/* GAMBAR LOGO MINE (Wajib angka mutlak agar tidak auto-scale) */
-.img-logo { 
-  width: 350px;     /* WAJIB SAMA dengan lebar .logo-area di atas */
-  height: 145px;     /* WAJIB SAMA dengan tinggi .logo-area di atas */
-  display: block; 
-}
-/* 2. AREA KOTAK FOTO PROFILE (ABANG ADOEL) */
 .profile-area {
-  position: absolute;
-  left: 0px;        /* Ganti dengan koordinat X (Left) dari Lunacy */
-  top: -20px;       /* Ganti dengan koordinat Y (Top) dari Lunacy */
-  width: 430px;     /* Ganti dengan lebar gambar profil dari Lunacy */
-  height: 966px;    /* Ganti dengan tinggi gambar profil dari Lunacy */
+  position: absolute; 
+  left: 0px; 
+  top: 0px; 
+  width: 430px; 
+  height: 966px; 
   z-index: 3;
 }
-/* GAMBAR PROFILE (Wajib angka mutlak agar tidak auto-scale) */
 .img-profile { 
-  width: 430px;     /* WAJIB SAMA dengan lebar .profile-area di atas */
-  height: 966px;    /* WAJIB SAMA dengan tinggi .profile-area di atas */
+  width: 430px; 
+  height: 966px; 
   display: block; 
 }
-
-/* ======================================================= */
-/* TOMBOL NAVIGASI - POSISI TETAP AMAN & UKURAN DIPISAH    */
-/* ======================================================= */
-
 .nav-item {
-  position: absolute; /* FITUR POSISI TETAP AKTIF MUTLAK */
-  z-index: 20;
-  text-decoration: none;
-  display: block;
-}
-
-/* Biar gambar font di dalamnya otomatis pas sesuai ukuran kotak masing-masing */
-.menu-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: fill; 
-  display: block;
-}
-
-/* ======================================================= */
-/* SETTING MANUAL KOORDINAT DAN UKURAN FONT DARI LUNACY    */
-/* ======================================================= */
-
-
-/* --- 1. Tombol Archives --- */
-.nav-item.archives { 
-  left: 255px;      /* Posisinya tetap ada (X Lunacy) */
-  top: 210px;       /* Posisinya tetap ada (Y Lunacy) */
-  width: 113px;     /* Lebar font dipisah (W Lunacy) */
-  height: 25px;     /* Tinggi font dipisah (H Lunacy) */
-}
-
-/* --- 2. Tombol Connected --- */
-.nav-item.connected { 
-  left: 227px;      /* Posisinya tetap ada (X Lunacy) */
-  top: 258px;       /* Posisinya tetap ada (Y Lunacy) */
-  width: 143px;     /* Lebar font dipisah (W Lunacy) */
-  height: 25px;     /* Tinggi font dipisah (H Lunacy) */
-}
-
-/* --- 3. Tombol Workmate --- */
-.nav-item.workmate { 
-  left: 232px;      /* Posisinya tetap ada (X Lunacy) */
-  top: 302px;       /* Posisinya tetap ada (Y Lunacy) */
-  width: 140px;     /* Lebar font dipisah (W Lunacy) */
-  height: 25px;     /* Tinggi font dipisah (H Lunacy) */
-}
-
-/* --- 4. Tombol Credits --- */
-.nav-item.credits { 
-  left: 280px;      /* Posisinya tetap ada (X Lunacy) */
-  top: 348px;       /* Posisinya tetap ada (Y Lunacy) */
-  width: 90px;      /* Lebar font dipisah (W Lunacy) */
-  height: 25px;     /* Tinggi font dipisah (H Lunacy) */
-
-}
-/* ======================================================= */
-/* FRAME CONNECTION                                        */
-/* ======================================================= */  /* --- KANVAS KEKUASAAN CONNECTIONS (STANDAR HP 430x932) --- */
-
-.app-container-review  {
-    width: 430px;
-    height: 932px;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
-}
-/* 1. Satu Gambar Background Gabungan Sesuai Nama Asli Abang */
-.connections-main-bg {
-  position: relative;
-  top: -18px;                /* Koordinat Y asli dari CSS Figma Abang */
-  width: 430px;
-  height: 967px;             /* Tinggi asli biar gak narik/gepeng */
-  background: url('./images/connection.png') no-repeat;
-  background-size: 100% 100%;
-  z-index: 1;
-
-}
-
-/* 2. TOMBOL PITA BACK NYATA (Pita Gak Gaib Lagi) */
-#pitaback-action {
-  position: absolute;
-  left: 45px;
-  top: 162px;
-  width: 100px;
-  height: 44px;
-  background: url('./images/pitaback2d1.png') no-repeat;
-  background-size: 100% 100%;
-  z-index: 10;
-  cursor: pointer;
-}
-
-.back-link-induk {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* 3. TIGA AREA TOMBOL GAIB STRATEGI PORTFOLIO (PAS DI ATAS LINGKARAN) */
-#rectangle1-gaib {
-  position: absolute;
-  left: 180px;
-  top: 485px;
-  width: 62px;
-  height: 95px;
-  background: transparent;
-  z-index: 10;
-  cursor: pointer;
-}
-
-#rectangle2-gaib {
-  position: absolute;
-  left: 180px;
-  top: 590px;
-  width: 62px;
-  height: 93px;
-  background: transparent;
-  z-index: 10;
-  cursor: pointer;
-}
-
-#rectangle3-gaib {
-  position: absolute;
-  left: 184px;
-  top: 694px;
-  width: 58px;
-  height: 79px;
-  background: transparent;
-  z-index: 10;
-  cursor: pointer;
-}
-
-.gaib-link-conn {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* 4. TEKS PINKY KEDIP NEON (SEKSI MEWREK PAS DI BAWAH) */
-.text-pink-blink-conn {
-  position: absolute;
-  left: 50%;
-  bottom: 40px;              /* Letak pas anggun mepet di bawah */
-  transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  color: #FF00E5;            /* Pink Neon Kebanggaan */
-  text-align: center;
-  white-space: nowrap;
-  z-index: 5;
-  text-shadow: 0 0 10px rgba(255, 0, 229, 0.8);
-  animation: neonBlinkConn 1.5s infinite alternate;
-}
-
-@keyframes neonBlinkConn {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-/* ======================================================= */
-/* FRAME WORKMATE                                          */
-/* ======================================================= */
-.app-container-review  {
-    width: 430px;
-    height: 932px;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Area Teks Workmate */
-.workmate-content-area {
-    position: relative;
-    top: 380px; /* Posisi di bawah Angel */
-    left: 20px;
-    width: 390px;
-    height: 500px;
-    overflow-y: auto;
-    z-index: 10;
-    padding-right: 10px;
-}
-.workmate-title-img {
-    width: 250px;
-    margin-bottom: 20px;
-}
-.workmate-paragraph {
-    color: #e0e0e0;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
-}
-/* ======================================================= */
-/* FRAME CREDITS MINE                                      */
-/* ======================================================= */
-
-.app-container-review  {
-    width: 430px;
-    height: 932px;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
-}
-.btn-back-pita-credits {
-    position: absolute;
-    left: 20px;
-    top: 30px;
-    width: 105px;
-    height: 44px;
-    z-index: 20;
-}
-.btn-back-pita-credits img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.credits-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-}
-
-.credits-list-box {
-    color: #cccccc;
-    font-size: 14px;
-    line-height: 2.5;
-}
-.credits-list-box span {
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-/* ======================================================= */
-/* FRAME CREDITS ARCHIVES                                     */
-/* ======================================================= */
-.app-container-review  {
-    width: 430px;
-    height: 932px;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
-}
-/* 1. Satu Gambar Utuh Gabungan Hasil Ekspor Figma Abang */
-.credit-main-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 430px;
-  height: 932px;
-  background: url('./images/credit ARCHIVES.png') no-repeat;
-  background-size: 100% 100%;
-  z-index: 1;
-}
-
-/* 2. TOMBOL GAIB RECTANGLE 5 (Pemicu Kembali ke ARCHIVES) */
-#rectangle5-gaib {
-  position: absolute;
-  left: 276px;
-  top: 185px;
-  width: 144px;
-  height: 607px;
-  background: transparent; /* Murni bening kasat mata */
-  z-index: 10;             /* Paling depan biar gampang di-tap jari */
-  cursor: pointer;
-}
-
-.gaib-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* 3. TEKS PINKY VERTIKAL (Eksotis 90° Sesuai Gambar Lunacy Kedua) */
-.text-pink-rotate-credit {
-  position: absolute;
-  left: 410px;               /* Mepet kanan mantap di ruang kosong */
-  top: 561px;                /* Koordinat Y asli Frame 13 Figma Abang */
-  width: 300px;
-  transform: rotate(90deg);  /* Mantra Putar Vertikal Sepuh */
-  transform-origin: left top;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;           /* Ukuran pas biar seksi ramping */
-  letter-spacing: 0.22em;
-  color: #FF00E5;            /* Neon Pink Merdeka! */
-  z-index: 5;
-  text-shadow: 0 0 8px rgba(255, 0, 229, 0.7);
-  animation: textBlinkPinky 1.5s infinite alternate;
-  white-space: nowrap;
-}
-
-@keyframes textBlinkPinky {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-/* ======================================================= */
-/* FRAME 2: ARCHIVES GALAXY (GABUNGAN & ALL UNLOCKED)      */
-/* ======================================================= */
-
-/* Latar belakang galaksi di dalam frame archives */
-.nebula-layer {
-  position: absolute;
-  left: 0px; 
-  top: 0px; 
-  width: 430px;    /* Kunci lebar penuh frame */
-  height: 932px;   /* Kunci tinggi penuh frame mengikuti kanvas putih */
-  z-index: 1;
-}
-.img-nebula-asli { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-}
-
-/* Bingkai frame tombol background */
-.frame-tombol-bg {
-  position: absolute;
-  left: 0px; 
-  top: 0px; 
-  width: 430px; 
-  height: 932px; 
-  z-index: 2;
-}
-.img-frame-bg { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: fill; 
-}
-
-/* Header Judul Teks Archives */
-.archive-header-title {
   position: absolute; 
-  left: 50px;      /* Koordinat X Lunacy Abang */
-  top: 120px;      /* Koordinat Y Lunacy Abang */
-  width: 330px;    /* Lebar W Lunacy Abang */
-  height: 82px;    /* Tinggi H Lunacy Abang */
-  z-index: 5;
-}
-.img-archive-title { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: contain; 
-}
-
-/* Kelompok Navigasi Menu Archives */
-.archive-nav-group { 
-  position: absolute; 
-  width: 430px; 
-  height: 932px; 
   z-index: 10; 
-  top: 0;
-  left: 0;
+  transition: transform 0.2s ease;
+}
+.nav-item:hover { transform: scale(1.05); }
+
+.nav-item.archives { 
+  left: 255px; 
+  top: 210px; 
+  width: 113px; 
+  height: 25px; }
+.nav-item.connected 
+{ 
+  left: 227px; 
+  top: 258px; 
+  width: 143px; 
+  height: 25px; 
+}
+.nav-item.workmate { 
+  left: 232px; 
+  top: 302px; 
+  width: 140px; 
+  height: 25px; 
+}
+.nav-item.credits 
+{ 
+  left: 280px; 
+  top: 348px; 
+  width: 90px; 
+  height: 25px; 
 }
 
-/* Pondasi Tombol Menu Di Dalam Archives (Posisinya Dipisah Profesional) */
+
+/* ======================================================= */
+/* [3] BLOCK FRAME 2: ARCHIVES GALAXY                      */
+/* ======================================================= */
+.nebula-layer { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
+.img-nebula-asli { width: 100%; height: 100%; object-fit: cover; }
+
+.frame-tombol-bg { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 2; }
+.img-frame-bg { width: 100%; height: 100%; object-fit: fill; }
+
+.archive-header-title { position: absolute; left: 50px; top: 120px; width: 330px; height: 82px; z-index: 5; }
+.img-archive-title { width: 100%; height: 100%; object-fit: contain; }
+
+.archive-nav-group { position: absolute; width: 430px; height: 966px; z-index: 10; top: 0; left: 0; }
+
+.btn-arch-item { position: absolute; z-index: 12; transition: transform 0.2s ease; }
+.btn-arch-item:hover { transform: scale(1.05); }
+
+.btn-arch-item.si-1 { 
+  left: 115px; 
+  top: 216px; 
+  width: 200px; 
+  height: 100px; }
+.btn-arch-item.ps-1 { 
+  left: 115px; 
+  top: 291px; 
+  width: 200px; 
+  height: 100px; }
+.btn-arch-item.moment-1 { 
+  left: 115px; 
+  top: 365px; 
+  width: 200px; 
+  height: 100px; }
+.btn-arch-item.credits-1 { 
+  left: 115px; 
+  top: 440px; 
+  width: 200px; 
+  height: 100px; }
+
 .btn-arch-item {
   position: absolute;
   z-index: 12;
@@ -534,134 +148,172 @@ html, body {
   object-fit: contain; 
   display: block; 
 }
-
-/* --- KOORDINAT & UKURAN ASLI LUNACY ABANG (TIDAK ADA YANG BERUBAH) --- */
-
-.btn-arch-item.si-1       { left: 115px; top: 216px; width: 200px; height: 100px; }
-.btn-arch-item.ps-1       { left: 115px; top: 291px; width: 200px; height: 100px; }
-.btn-arch-item.moment-1   { left: 115px; top: 365px; width: 200px; height: 100px; }
-.btn-arch-item.credits-1  { left: 115px; top: 440px; width: 200px; height: 100px; }
-
-
-/* ======================================================= */
-/* ELEMEN TAMBAHAN (TOMBOL BACK ANGEL & TEKS KEDIP)        */
-/* ======================================================= */
-
-/* Tombol Back Gambar Angel */
-.angel-back-button:hover { transform: scale(1.02); }
-.btn-arch-item:hover { transform: scale(1.05); }
-.nav-item:hover { transform: scale(1.05); }
-
 .angel-back-button {
-  position: absolute;
-  left: 0px;     /* Koordinat X Lunacy */
-  top: 503px;      /* Koordinat Y Lunacy */
-  width: 430px;     /* Lebar W Lunacy */
-  height: 440px;    /* Tinggi H Lunacy */
-  z-index: 20;
-  display: block;
+  position: absolute; left: 0px; top: 526px; width: 430px; height: 440px; z-index: 20; display: block; transition: transform 0.2s ease;
 }
-.img-angel-revisi { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: contain; 
-}
+.angel-back-button:hover { transform: scale(1.03); }
+.img-angel-revisi { width: 100%; height: 100%; object-fit: contain; }
 
-/* Teks Kedip Pink Panduan di Bawah */
 .teks-kedip-pink {
-  position: absolute;
-  width: 430px;
-  text-align: center;
-  bottom: 40px;    /* Jarak stabil dari bawah frame */
-  z-index: 25;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ff69b4;
-  letter-spacing: 1px;
-  /* Animasi kedip lembut profesional */
-  animation: blinkProfessional 1.5s infinite ease-in-out; 
+  position: absolute; width: 430px; text-align: center; bottom: 40px; z-index: 25;
+  font-family: sans-serif; font-size: 14px; font-weight: bold; color: #ff69b4; letter-spacing: 1px; animation: blinkProfessional 1.5s infinite ease-in-out; 
 }
+@keyframes blinkProfessional { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-@keyframes blinkProfessional {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
+
 /* ======================================================= */
-/*  FRAME 3 (SHAPED-IDEAS.CSS)                             */
+/* [4] BLOCK FRAME 3: SHAPED IDEAS (KUNCI TOTAL SCROLL)    */
 /* ======================================================= */
-.app-container-shaped {
-  position: relative;
-  width: 430px;              /* Lebar murni Lunacy */
-  height: 932px;             /* Tinggi murni Lunacy */
-  background: transparent;       
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  flex-shrink: 0;
-  transform-origin: center center;
-}
 
-.bg-nebula-red {
-  position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1;
-}
-.bg-nebula-red img { width: 100%; height: 100%; object-fit: cover; }
+.bg-nebula-red { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
+.bg-nebula-red img { width: 100%; height: 100%; object-fit: contain;}
 
-.letter-shaped-title {
-  position: absolute; left: 65px; top: 30px; width: 300px; height: 72px; z-index: 5;
-}
-.letter-shaped-title img { width: 100%; height: 100%; object-fit: contain; }
+.letter-shaped-title { position: absolute; left: 65px; top: 30px; width: 300px; height: 72px; z-index: 5; }
+.letter-shaped-title img { width: 100%; height: 100%; object-fit: contain;}
 
-.btn-credit-atas-kanan {
-  position: absolute; left: 330px; top: 15px; width: 85px; height: auto; z-index: 15; display: block;
-}
+.btn-credit-atas-kanan { position: absolute; left: 330px; top: 15px; width: 85px; height: auto; z-index: 15; display: block; transition: transform 0.2s ease; }
+.btn-credit-atas-kanan:hover { transform: scale(1.08); }
 .btn-credit-atas-kanan img { width: 100%; height: auto; object-fit: contain; }
 
 .gemini-angel-fly-btn {
-  position: absolute; left: 65px; top: 66px; width: 300px; height: 403px; z-index: 8; display: block; text-decoration: none;
-  animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  position: absolute; left: 65px; top: 66px; width: 300px; height: 403px; z-index: 8; display: block; text-decoration: none; animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; transition: transform 0.2s ease;
 }
-.gemini-angel-fly-btn img { width: 100%; height: 100%; object-fit: contain; }
+.gemini-angel-fly-btn:hover { transform: scale(1.03); }
+.gemini-angel-fly-btn img { width: 100%; height: 100%; }
 
-.slider-zone-android {
-  position: absolute; left: 0px; top: 632px; width: 430px; height: 300px; z-index: 20; overflow: hidden;
-}
-
-.frame-slide-black-bg {
-  position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none;
-}
+.slider-zone-android { position: absolute; left: 0px; top: 632px; width: 430px; height: 300px; z-index: 20; overflow: hidden; }
+.frame-slide-black-bg { position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none; }
 .frame-slide-black-bg img { width: 100%; height: 100%; object-fit: fill; }
 
 .slider-horizontal-scroll {
-  position: absolute; left: 0px; top: 0px; width: 430px; height: 300px; z-index: 22;      
-  display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;        
-  align-items: center; padding-left: 25px; padding-right: 25px;
-  overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important;
-  cursor: pointer; box-sizing: border-box; -webkit-overflow-scrolling: touch;
+  position: absolute; left: 0px; top: 0px; width: 430px; height: 300px; z-index: 22; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center; padding-left: 25px; padding-right: 25px; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; box-sizing: border-box; -webkit-overflow-scrolling: touch;
 }
-
-.logo-box {
-  display: inline-block !important; flex: 0 0 auto !important; width: 127.28px !important; height: 98.73px !important; margin-right: 20px !important;       
-}
+.logo-box { display: inline-block !important; flex: 0 0 auto !important; width: 127.28px !important; height: 98.73px !important; margin-right: 20px !important; }
 .logo-box img { width: 100%; height: 100%; object-fit: contain; }
 .slider-horizontal-scroll::-webkit-scrollbar { display: none !important; }
 
 .text-pink-blink-bawah {
-  position: absolute; left: 0px; bottom: 25px; width: 430px; text-align: center;
-  color: #ff66cc; font-family: 'Courier New', Courier, monospace; font-size: 11px;
-  font-weight: bold; letter-spacing: 1px; text-transform: uppercase; z-index: 25;       
-  animation: kedipMbah 1s infinite alternate; pointer-events: none;
+  position: absolute; left: 0px; bottom: 25px; width: 430px; text-align: center; color: #ff66cc; font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; z-index: 25; animation: kedipMbah 1s infinite alternate; pointer-events: none;
 }
-
 @keyframes kedipMbah { 0% { opacity: 0.2; } 100% { opacity: 1; } }
 @keyframes terbangBidadariTinggi { 0% { opacity: 0; transform: translateY(100px); } 100% { opacity: 1; transform: translateY(0); } }
 
+
 /* ======================================================= */
-/* FRAME 4: (PAINTING-SPACE.CSS)                           */
+/* [5] BLOCK FRAME 4: PAINTING SPACE (LOCK SCROLL)         */
 /* ======================================================= */
-.app-container-painting {
-  position: relative;
-  width: 430px;              /* Lebar murni Lunacy */
-  height: 932px;             /* Tinggi murni Lunacy */
+
+.bg-nebula-green { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
+.bg-nebula-green img { width: 100%; height: 100%; object-fit: cover; }
+.gemini-angel-fly-btn:hover { transform: scale(1.05); }
+.vertical-scroll-zone { width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+.vertical-scroll-zone::-webkit-scrollbar { display: none !important; }
+
+.zoom-wrapper { width: 100%; transform-origin: top center; transition: transform 0.3s ease-in-out; position: relative; z-index: 2; }
+.zoom-wrapper.zoomed-active { transform: scale(1.5); }
+
+
+/* ======================================================= */
+/* [6] BLOCK FRAME 5: MOMENTUM                             */
+/* ======================================================= */
+.app-container-momentum {
+  width: 430px; height: 966px; position: relative; overflow: hidden; background: #000000; margin: 0 auto; flex-shrink: 0;
+}
+
+.momentum-header-title { position: absolute; left: 50px; top: 160px; width: 330px; height: auto; z-index: 5; }
+.img-momentum-title { width: 100%; height: auto; }
+
+.momentum-nav-group { position: absolute; left: 115px; top: 300px; width: max-content !important; display: flex; flex-direction: column; gap: 30px !important; z-index: 4; }
+.btn-mom-item { width: 200px; height: 50px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+.btn-mom-item:hover { transform: scale(1.05); }
+.mom-btn-img { width: 280px; height: 50px; }
+
+.btn-back-angel-momentum {
+  position: absolute; left: 0px; top: 526px; width: 430px; height: 440px; z-index: 5; transition: transform 0.2s ease;
+}
+.btn-back-angel-momentum:hover { transform: scale(1.03); }
+.img-angel-back-click { width: 100%; height: auto; display: block; }
+
+
+/* ======================================================= */
+/* [7] BLOCK FRAME 6: MOVING FRAME (VIDEO PLAYER)          */
+/* ======================================================= */
+.app-container-moving {
+  width: 430px; height: 966px; position: relative; overflow: hidden; background: #000000; margin: 0 auto; flex-shrink: 0;
+}
+
+.letter-moving-title { position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4; }
+.letter-moving-title img { width: 100%; height: 100%; }
+
+.layer-angel-fly { position: absolute; left: 112px; top: 66px; width: 206.37px; height: 277px; z-index: 99; cursor: pointer; display: block; transition: transform 0.2s ease; animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; transition: transform 0.2s ease; }
+.layer-angel-fly:hover { transform: scale(1.03); }
+.layer-angel-fly img { width: 100%; height: auto; }
+
+.slider-zone-android-moving {
+  position: absolute; left: 0px; top: 630px; width: 430px; height: 250px; overflow: hidden; z-index: 20;
+}
+.frame-slide-black-bg-moving {
+  position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none;
+}
+.frame-slide-black-bg-moving img { width: 100%; height: 100%; object-fit: fill; }
+
+.slider-horizontal-scroll-moving {
+  position: absolute; left: 0px; top: 0px; width: 430px; height: 250px; z-index: 22;      
+  display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;        
+  align-items: center; padding-left: 25px; padding-right: 25px;
+  overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important;
+  box-sizing: border-box; -webkit-overflow-scrolling: touch;
+}
+.slider-horizontal-scroll-moving::-webkit-scrollbar { display: none; }
+
+.video-box {
+  display: inline-block !important; flex: 0 0 auto !important; width: 273px !important;  
+  height: 150px !important; margin-right: 20px !important; cursor: pointer; border-radius: 12px;
+  overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.video-box img { width: 100%; height: 100%; object-fit: cover; }
+.layer-angel-fly:hover { transform: scale(1.05); }
+.btn-back-pink-moving {
+  position: absolute; left: 86px; top: 893px; width: 259px; height: 40px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; text-align: center; color: #fa0ebf; text-decoration: none; z-index: 30; animation: kedipPinkManja 1.5s infinite alternate;
+}
+#rectangle4 { position: absolute; left: 11px; top: 380px; width: 409px; height: 230px; background: #1a1a1a; border-radius: 12px; overflow: hidden; z-index: 10; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6); }
+#main-video-player { width: 100% !important; height: 100% !important; object-fit: fill !important; display: block; }
+@keyframes kedipPinkManja { 0% { opacity: 1; } 100% { opacity: 0.4; } }
+
+/* ======================================================= */
+/* [8] BLOCK FRAME 7: FRAME PHOTO EXPAND (LOCK SCROLL)     */
+/* ======================================================= */
+
+.letter-frame-title { position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4; }
+.letter-frame-title img { width: 100%; height: 100%; }
+
+.gemini-angel-fly-btn {
+    position: absolute;
+    left: 65px;
+    top: 66px;
+    width: 300px;
+    height: 403px;
+    z-index: 8;
+    display: block;
+    text-decoration: none;
+    animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+} 
+.gemini-angel-fly-btn:hover { transform: scale(1.05); }
+
+#main-photo-zoom-zone {
+  position: absolute; left: 50%; top: 450px; transform: translate(-50%, -50%); width: 410px; height: 310px; z-index: 99; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden;
+}
+#main-photo-zoom-zone img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+#main-photo-zoom-zone.fade-in-photo { opacity: 1; visibility: visible; }
+
+
+/* ======================================================= */
+/* [9] BLOCK FRAME 8: GROUP CREDITS & TOMBOL PITA BACK FIX */
+/* ======================================================= */
+.app-container-review {
+ position: relative;
+  width: 430px; 
+  height: 966px;
   background: transparent;       
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
   overflow: hidden;
@@ -669,49 +321,91 @@ html, body {
   transform-origin: center center;
 }
 
-.vertical-scroll-zone {
-  width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+/* --- SECTION CONNECTIONS --- */
+.connections-main-bg {
+  position: relative;
+  top: -18px;                
+  width: 430px;
+  height: 967px;             
+  background: url('./images/connection.png') no-repeat;
+  background-size: 100% 100%;
+  z-index: 1;
 }
-.vertical-scroll-zone::-webkit-scrollbar { display: none !important; }
 
-.zoom-wrapper { width: 100%; transform-origin: top center; transition: transform 0.3s ease-in-out; }
-.zoom-wrapper.zoomed-active { transform: scale(1.5); }
-
-/* ======================================================= */
-/* JALUR MANDIRI KHUSUS: REVISI FRAME PAINTING SPACE       */
-/* ======================================================= */
-
-
-/* Memperbaiki Posisi Slider Box Hitam Khusus Di Painting Space */
-.slider-zone-android {
+#pitaback-action {
   position: absolute; 
-  left: 0px; 
-  top: 632px; /* Mengikuti koordinat Y asli dari setelan Corel Abang */
-  width: 430px; 
-  height: 300px; 
-  z-index: 20; 
-  overflow: hidden;
+  left: 45px; 
+  top: 162px; 
+  width: 100px; 
+  height: 44px;
+  background: url('./images/pitaback2d1.png') no-repeat; background-size: 100% 100%;
+  z-index: 10; 
+  cursor: pointer;
 }
 
-/* Memperbaiki Ukuran Kotak Logo di Dalam Slider Painting Space Biar Pas */
-.logo-box {
-  display: inline-block !important; 
-  flex: 0 0 auto !important; 
-  width: 127.28px !important;  /* Mengunci ukuran kotak sesuai data CSS asli Abang */
-  height: 98.73px !important; 
-  margin-right: 20px !important;       
+.back-link-induk {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
+#rectangle1-gaib { position: absolute; left: 180px; top: 485px; width: 62px; height: 95px; background: transparent; z-index: 10; cursor: pointer; }
+#rectangle2-gaib { position: absolute; left: 180px; top: 590px; width: 62px; height: 93px; background: transparent; z-index: 10; cursor: pointer; }
+#rectangle3-gaib { position: absolute; left: 184px; top: 694px; width: 58px; height: 79px; background: transparent; z-index: 10; cursor: pointer; }
+.gaib-link-conn { display: block; width: 100%; height: 100%; }
 
-.logo-box img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: contain; 
+.text-pink-blink-conn {
+  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
+  font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 0.18em;
+  color: #FF00E5; text-align: center; white-space: nowrap; z-index: 5;
+  text-shadow: 0 0 10px rgba(255, 0, 229, 0.8); animation: neonBlinkConn 1.5s infinite alternate;
 }
+@keyframes neonBlinkConn { 0% { opacity: 0.3; } 100% { opacity: 1; } }
 
-/* ========================================================
-   DATA UKURAN MASTER GLOBAL - SLIDE GAMBAR PANJANG & MULTI
-   Total Sesuai Dengan Seluruh Nama Image Asli HTML Abang
-   ======================================================== */
+/* --- SECTION WORKMATE --- */
+.workmate-content-area {
+  position: relative; 
+  top: 380px; 
+  left: 20px; 
+  width: 390px; 
+  height: 500px; 
+  overflow-y: auto; 
+  z-index: 10; 
+  padding-right: 10px;
+}
+.workmate-title-img { 
+  width: 250px; 
+  margin-bottom: 20px; }
+.workmate-paragraph { 
+  color: #e0e0e0; 
+  font-size: 14px; 
+  line-height: 1.6; 
+  margin-bottom: 20px; 
+  text-align: justify; }
+
+/* --- SECTION CREDITS MINE --- */
+.btn-back-pita-credits { position: absolute; left: 20px; top: 30px; width: 105px; height: 44px; z-index: 20; }
+.btn-back-pita-credits img { width: 100%; height: 100%; object-fit: contain; }
+.credits-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; z-index: 10; }
+.credits-list-box { color: #cccccc; font-size: 14px; line-height: 2.5; }
+.credits-list-box span { display: block; font-size: 18px; color: #ffffff; font-weight: bold; }
+
+/* --- SECTION CREDITS ARCHIVES --- */
+.credit-main-bg { position: absolute; left: 0; top: 0; width: 430px; height: 966px; background: url('./images/credit ARCHIVES.png') no-repeat; background-size: 100% 100%; z-index: 1; }
+#rectangle5-gaib { position: absolute; left: 276px; top: 185px; width: 144px; height: 607px; background: transparent; z-index: 10; cursor: pointer; }
+.gaib-link { display: block; width: 100%; height: 100%; }
+
+.text-pink-rotate-credit {
+  position: absolute; left: 410px; top: 561px; width: 300px; transform: rotate(90deg); transform-origin: left top;
+  font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.22em; color: #FF00E5; z-index: 5;
+  text-shadow: 0 0 8px rgba(255, 0, 229, 0.7); animation: textBlinkPinky 1.5s infinite alternate; white-space: nowrap;
+}
+@keyframes textBlinkPinky { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+
+
+/* ======================================================== */
+/* [10] BLOCK MASTER DATA UKURAN SLIDER REVIEWS             */
+/* ======================================================== */
 
 /* --- SHAPED IDEAS SECTION (11 Proyek) --- */
 .review-andalas-img { width: 430px; height: 1015px; display: block; }
@@ -762,177 +456,3 @@ html, body {
   position: absolute; left: -15px; top: 24px; width: 105px; height: 44px; z-index: 999; display: block;
 }
 .btn-back-pita-timeline img { width: 100%; height: 100%; object-fit: contain; }
-
-/* ======================================================= */
-/* FRAME 5 : (MOMENTUM.CSS)                                */
-/* ======================================================= */
-.app-container-momentum {
-  width: 430px;
-  height: 932px;
-  position: relative;
-  overflow: hidden;
-  background: #000000;
-  margin: 0 auto;
-  flex-shrink: 0;
-  transform-origin: center center;
-}
-
-/* File ini sengaja menggunakan nama class unik bawaan aslinya agar tak tabrakan */
-.momentum-header-title {
-  position: absolute; 
-  left: 50px; 
-  top: 160px; 
-  width: 330px; 
-  height: auto; 
-  z-index: 5;
-}
-.img-momentum-title { width: 100%; height: auto; }
-
-.momentum-nav-group {
-  position: absolute; 
-  left: 115px; 
-  top: 300px; 
-  width: max-content !important; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 30px !important; 
-  z-index: 4;
-}
-.momentum-nav-group * {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-/* 1. KOTAK RUMAH TOMBOL (UKURAN METERAN PASTI) */
-.btn-mom-item {
-  width: 200px;       /* Lebar riil rumah tombol: 150 piksel */
-  height: 50px;       /* Tinggi riil rumah tombol: 40 piksel */
-  display: flex;      /* Mengaktifkan fitur perataan tengah */
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-/* 2. GAMBAR ASLI DI DALAMNYA (UKURAN MANUAL - BEBAS PERSEN) */
-.mom-btn-img {
-  width: 280px;      /* Lebar fisik gambar: Diisi SAMA dengan lebar rumahnya biar pas */
-  height: 50px;      /* Tinggi fisik gambar: Diisi SAMA dengan tinggi rumahnya biar ngepas */
-}
-.btn-mom-item:hover { transform: scale(1.05); }
-.btn-back-angel-momentum:hover { transform: scale(1.05); }
-.btn-back-angel-momentum {
-  position: absolute; 
-  left: 0px; 
-  top: 503px; 
-  width: 430px; 
-  height: 440px; 
-  z-index: 5;
-}
-.img-angel-back-click { width: 100%; height: auto; display: block; }
-/* ======================================================= */
-/* FRAME 6 : (MOVING-FRAME.CSS)                            */
-/* ======================================================= */
-.app-container-moving {
-  width: 430px;
-  height: 932px;
-  position: relative;
-  overflow: hidden;
-  background: #000000;
-  margin: 0 auto;
-  flex-shrink: 0;
-  transform-origin: center center;
-}
-
-.letter-moving-title {
-  position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4;
-}
-.letter-moving-title img { width: 100%; height: 100%; }
-
-.layer-angel-fly {
-  position: absolute; left: 112px; top: 66px; width: 206.37px; height: 277px; z-index: 99; cursor: pointer; display: block;
-}
-.layer-angel-fly img { width: 100%; height: auto; }
-
-#rectangle4 {
-  position: absolute; left: 11px; top: 380px; width: 409px; height: 230px; background: #1a1a1a; border-radius: 12px; overflow: hidden; z-index: 10; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
-}
-#main-video-player { width: 100% !important; height: 100% !important; object-fit: fill !important; display: block; }
-
-.slider-zone-android-moving {
-  position: absolute; left: 0px; top: 630px; width: 430px; height: 250px; overflow: hidden; z-index: 20;
-}
-.frame-slide-black-bg-moving {
-  position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none;
-}
-.frame-slide-black-bg-moving img { width: 100%; height: 100%; object-fit: fill; }
-
-.slider-horizontal-scroll-moving {
-  position: absolute; left: 0px; top: 0px; width: 430px; height: 250px; z-index: 22;      
-  display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;        
-  align-items: center; padding-left: 25px; padding-right: 25px;
-  overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important;
-  box-sizing: border-box; -webkit-overflow-scrolling: touch;
-}
-.slider-horizontal-scroll-moving::-webkit-scrollbar { display: none; }
-
-.video-box {
-  display: inline-block !important; flex: 0 0 auto !important; width: 273px !important;  
-  height: 150px !important; margin-right: 20px !important; cursor: pointer; border-radius: 12px;
-  overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-.video-box img { width: 100%; height: 100%; object-fit: cover; }
-.layer-angel-fly:hover { transform: scale(1.05); }
-.btn-back-pink-moving {
-  position: absolute; left: 86px; top: 893px; width: 259px; height: 40px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; text-align: center; color: #fa0ebf; text-decoration: none; z-index: 30; animation: kedipPinkManja 1.5s infinite alternate;
-}
-@keyframes kedipPinkManja { 0% { opacity: 1; } 100% { opacity: 0.4; } }
-
-/* ======================================================= */
-/* FRAME 7 : (FRAME-MOMENT.CSS)                            */
-/* ======================================================= */
-.app-container-frame {
-  position: relative;
-  width: 430px;              /* Lebar murni Lunacy */
-  height: 932px;             /* Tinggi murni Lunacy */
-  background: transparent;       
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  flex-shrink: 0;
-  transform-origin: center center;
-}
-
-.letter-frame-title {
-  position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4;
-}
-.letter-frame-title img { width: 100%; height: 100%; }
-
-.gemini-angel-fly-btn {
-    position: absolute;
-    left: 65px;
-    top: 66px;
-    width: 300px;
-    height: 403px;
-    z-index: 8;
-    display: block;
-    text-decoration: none;
-    animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-} 
-.gemini-angel-fly-btn:hover { transform: scale(1.05); }
-
-#main-photo-zoom-zone {
-  position: absolute; left: 50%; top: 450px; transform: translate(-50%, -50%);
-  width: 410px; height: 310px; z-index: 99; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden;
-}
-#main-photo-zoom-zone img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; 
-}
-#main-photo-zoom-zone.fade-in-photo { opacity: 1; visibility: visible; }
-
-/* ======================================================= */
-/* LOCK FRAME CONTENER FRAME                               */
-/* ======================================================= */
-
-/* ======================================================= */
-/* KUNCI PETI BOX BESI: AKTIVASI ZOOM ROMBONGAN CREDIT +   */
-/* CONNECTION + WORKMATE                                   */
-/* ======================================================= */
-
-/
