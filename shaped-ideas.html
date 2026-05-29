@@ -151,6 +151,26 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
                 window.location.href = "archives.html";
             }, 800);
-           <script>
+        <script>
+<script>
+    function lockFitLayar() {
+        const container = document.querySelector('.app-container');
+        if (!container) return;
+
+        // Hitung rasio layar HP Abang secara real-time
+        const skalaX = window.innerWidth / 430;
+        const skalaY = window.innerHeight / 932;
+
+        // Ambil skala terkecil biar PAS dan GAK LUBER
+        const skalaFinal = Math.min(skalaX, skalaY);
+
+        // Paksa kunci mati ukurannya di HP!
+        container.style.transform = `scale(${skalaFinal})`;
+    }
+
+    // Jalankan otomatis pas web dibuka dan pas layar berubah
+    window.addEventListener('DOMContentLoaded', lockFitLayar);
+    window.addEventListener('resize', lockFitLayar);
+</script>
 </body>
 </html>
