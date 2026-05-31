@@ -1,108 +1,335 @@
-/* ======================================================= */
-/* [1] MASTER PONDASI AWAL RE-STORASI - AMAN & CENTER       */
-/* ======================================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+/* ==========================================================================
+   PONDASI UTAMA - MANUAl ABSOLUT TANPA PERSEN (ANTI BAHAN REWEL)
+   ========================================================================== */
+   * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-html, body {
+  html, body {
   background-color: #000000;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;  
   align-items: center;      
-  overflow: hidden;         
+  overflow: hidden;  
+  margin: 0px;       
+  
+  /* --- KODE PENGUNCI ANTARA LOCK OUT & IN --- */
+  touch-action: none; /* Mengunci total browser agar tidak bisa di-zoom out/in pake scroll/jari */
+}
+ 
+/* ==========================================================================
+   [1] MINE
+   ========================================================================== */
+   .app-container {
+    position: relative;
+    width: 430px;              
+    height: 966px;             
+    background: transparent;       
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 0 auto;            
+  }
+
+  .profile-area {
+    position: absolute;
+    /* KOORDINAT AKURAT (X=0, Y=-20px) */
+    left: 0px;
+    top: 0px;
+    /* UKURAN MANUAL FILL PLAT */
+    width: 430px;
+    height: 966px;
+    /* LAPISAN MATRA Z (Z=2) - DI ATAS CONTAINER, DI BAWAH LOGO */
+    z-index: 2;
+  }
+
+  .img-profile {
+    width: 430px;
+    height: 966px;
+    display: block;
+    object-fit: fill;
+  }
+
+  #tombol-gaib-body-abang {
+    position: absolute;
+    /* KOORDINAT FLUSH (X=0, Y=0) */
+    left: 0px;
+    top: 0px;
+    /* UKURAN LINK GAIB LUAS */
+    width: 430px;
+    height: 966px;
+    /* LAPISAN MATRA Z (Z=3) - DI ATAS BACKGROUND */
+    z-index: 3;
+  }
+
+  .gaib-link-main {
+    display: block;
+    width: 430px;
+    height: 966px;
+    text-decoration: none;
+  }
+  =======================
+  ///* NAVIGASI MINE *///
+  =======================
+  .nav-area {
+    position: absolute;
+    /* KOORDINAT DUDUKAN UTAMA (X=0, Y=0) */
+    left: 0px;
+    top: 0px;
+    width: 430px;
+    height: 966px;
+    /* LAPISAN MATRA Z PONTEN TERTINGGI (Z=5) - ANTI COPOK / BISA DIKLIK */
+    z-index: 5;
+  }
+
+  .nav-item {
+    position: absolute; 
+    z-index: 10; 
+    transition: transform 0.2s ease;
+  }
+
+  .menu-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill; 
+    display: block;
+  }
+  .nav-item:hover { transform: scale(1.05); }
+
+/* Tombol 1: Archives */
+.nav-item.archives {
+  /* KOORDINAT (X=255px, Y=210px) */
+  left: 255px;
+  top: 210px;
+  /* UKURAN MANUAL ASSET */
+  width: 113px;
+  height: 25px;
+}
+.nav-item.archives .menu-img {
+  width: 113px;
+  height: 25px;
 }
 
-/* ======================================================= */
-/* [2] BLOCK FRAME 1: MAIN MENU (HOME MINE)                */
-/* ======================================================= */
-.app-container {
-  position: relative;
-  width: 430px;              
-  height: 966px;             
-  background: transparent;       
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-  flex-shrink: 0;
-  margin: 0 auto;            
+/* Tombol 2: Connected */
+.nav-item.connected {
+  /* KOORDINAT (X=227px, Y=258px) */
+  left: 227px;
+  top: 258px;
+  /* UKURAN MANUAL ASSET */
+  width: 143px;
+  height: 25px;
+}
+.nav-item.connected .menu-img {
+  width: 143px;
+  height: 25px;
 }
 
-.logo-area {
+/* Tombol 3: Workmate */
+.nav-item.workmate {
+  /* KOORDINAT (X=232px, Y=302px) */
+  left: 232px;
+  top: 302px;
+  /* UKURAN MANUAL ASSET */
+  width: 140px;
+  height: 25px;
+}
+.nav-item.workmate .menu-img {
+  width: 140px;
+  height: 25px;
+}
+
+/* Tombol 4: Credits */
+.nav-item.credits {
+  /* KOORDINAT (X=280px, Y=348px) */
+  left: 280px;
+  top: 348px;
+  /* UKURAN MANUAL ASSET */
+  width: 90px;
+  height: 25px;
+}
+.nav-item.credits .menu-img {
+  width: 90px;
+  height: 25px;
+}
+======================
+///* CREDITS MINE *///
+======================
+.credit-mine-bg {
+  position: absolute;
+  /* KOORDINAT AKURAT (X=0, Y=-20px) */
+  left: 0px;
+  top: 0px;
+  /* UKURAN MANUAL FILL PLAT */
+  width: 430px;
+  height: 966px;
+  background: url('./images/credit MINE.png') no-repeat; 
+  background-size: 100% 100%; 
+  z-index: 1; }
+
+  .img-credit-mine {
+    width: 430px;
+    height: 966px;
+    display: block;
+    object-fit: fill;
+  }
+
+  #rectangle5-gaib { position: absolute; left: 276px; top: 185px; width: 144px; height: 607px; background: transparent; z-index: 10; cursor: pointer; }
+  .gaib-link { display: block; width: 100%; height: 100%; }
+
+  .text-pink-rotate-credit {
+    position: absolute; left: 410px; top: 561px; width: 300px; transform: rotate(90deg); transform-origin: left top;
+    font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.22em; color: #FF00E5; z-index: 5;
+    text-shadow: 0 0 8px rgba(255, 0, 229, 0.7); animation: textBlinkPinky 1.5s infinite alternate; white-space: nowrap;
+  }
+  @keyframes textBlinkPinky { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+  ======================
+  ///*   WORKMATE   *///
+  ======================
+
+  /* --- SECTION WORKMATE --- */
+.workmate-content-area {
+  position: relative; 
+  top: 380px; 
+  left: 20px; 
+  width: 390px; 
+  height: 500px; 
+  overflow-y: auto; 
+  z-index: 10; 
+  padding-right: 10px;
+}
+.workmate-title-img { 
+  width: 250px; 
+  margin-bottom: 20px; }
+
+.workmate-paragraph { 
+  color: #e0e0e0; 
+  font-size: 14px; 
+  line-height: 1.6; 
+  margin-bottom: 20px; 
+  text-align: justify; }
+
+  .workmate-main-bg {
+    position: absolute;
+    left: 0;
+    top: -18px;                /* Koordinat Y asli dari ekspor CSS Figma Abang */
+    width: 430px;
+    height: 968px;             /* Tinggi asli biar gak ketarik rasionya */
+    background: url('./images/welcom up.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+  }
+
+  /* 2. TOMBOL GAIB RECTANGLE 6 (Pemicu Kembali ke Home Utama) */
+  #rectangle6-gaib {
+    position: absolute;
+    left: 160px;               /* Koordinat X Pas di Tengah Perut Eneng */
+    top: 128px;                /* Koordinat Y Pas di Tengah Perut Eneng */
+    width: 109px;
+    height: 160px;
+    background: transparent;   /* Bening tanpa warna, murni gerbang gaib */
+    z-index: 10;               /* Wajib paling depan biar peka sentuhan jari */
+    cursor: pointer;
+  }
+
+  .gaib-link-workmate {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 3. TEKS PINKY KEDIP NEON (SUDAH NAIK MELEJIT KE ATAS NYELIP DI SPACE KOSONG) */
+  .text-pink-blink-workmate {
+    position: absolute;
+    left: 50%;
+    top: 540px;                /* <<< KOORDINAT SAKTI BARU: PAS DI TENGAH ANTARA DUA BLOK TEKS PUTIH */
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;           /* Sedikit disesuaikan agar proporsional dan ramping */
+    letter-spacing: 0.18em;
+    color: #FF00E5;            /* Pink Neon Kebanggaan */
+    text-align: center;
+    white-space: nowrap;
+    z-index: 5;
+    text-shadow: 0 0 10px rgba(255, 0, 229, 0.8);
+    animation: neonBlinkHorizontal 1.5s infinite alternate; /* Efek Kedip */
+  }
+
+  @keyframes neonBlinkHorizontal {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+        }
+  =======================
+  ///*   CONNECTED   *///
+  =======================
+.connections-main-bg {
+    position: absolute;
+    left: 0;
+    top: -18px;                /* Koordinat Y asli dari ekspor CSS Figma Abang */
+    width: 430px;
+    height: 966px;             /* Tinggi asli biar gak ketarik rasionya */
+    background: url('./connection.png.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+.img-connections-main { 
+  width: 430px; 
+  margin-bottom: 20px; }
+
+#pitaback-action {
   position: absolute; 
-  left: 40px; 
-  top: 30px; 
-  width: 350px; 
-  height: 145px; 
-  z-index: 5;
+  left: 0px; 
+  top: 50px; 
+  width: 100px; 
+  height: 44px;
+  background: url('./images/pitaback2d1.png') no-repeat; background-size: 100% 100%;
+  z-index: 10; 
+  cursor: pointer;
 }
-.img-logo { 
-  width: 350px;    
-  height: 145px; 
-  display: block; 
-}
-.menu-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: fill; 
+
+.back-link-induk {
   display: block;
+  width: 100%;
+  height: 100%;
 }
-.profile-area {
+#rectangle1-gaib { position: absolute; left: 180px; top: 485px; width: 62px; height: 95px; background: transparent; z-index: 10; cursor: pointer; }
+#rectangle2-gaib { position: absolute; left: 180px; top: 590px; width: 62px; height: 93px; background: transparent; z-index: 10; cursor: pointer; }
+#rectangle3-gaib { position: absolute; left: 184px; top: 694px; width: 58px; height: 79px; background: transparent; z-index: 10; cursor: pointer; }
+.gaib-link-conn { display: block; width: 100%; height: 100%; }
+
+.text-pink-blink-conn {
+  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
+  font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 0.18em;
+  color: #FF00E5; text-align: center; white-space: nowrap; z-index: 5;
+  text-shadow: 0 0 10px rgba(255, 0, 229, 0.8); animation: neonBlinkConn 1.5s infinite alternate;
+}
+@keyframes neonBlinkConn { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* ==========================================================================
+   [2] ARCHIVES
+   ========================================================================== */
+
+.nebula-layer { 
   position: absolute; 
   left: 0px; 
   top: 0px; 
   width: 430px; 
   height: 966px; 
-  z-index: 3;
+  z-index: 1; 
 }
-.img-profile { 
-  width: 430px; 
-  height: 966px; 
+
+.img-nebula-asli {
+  width: 100%; 
+  height: 100%; 
   display: block; 
 }
-.nav-item {
-  position: absolute; 
-  z-index: 10; 
-  transition: transform 0.2s ease;
-}
-.nav-item:hover { transform: scale(1.05); }
-
-.nav-item.archives { 
-  left: 255px; 
-  top: 210px; 
-  width: 113px; 
-  height: 25px; }
-.nav-item.connected 
-{ 
-  left: 227px; 
-  top: 258px; 
-  width: 143px; 
-  height: 25px; 
-}
-.nav-item.workmate { 
-  left: 232px; 
-  top: 302px; 
-  width: 140px; 
-  height: 25px; 
-}
-.nav-item.credits 
-{ 
-  left: 280px; 
-  top: 348px; 
-  width: 90px; 
-  height: 25px; 
-}
-
-
-/* ======================================================= */
-/* [3] BLOCK FRAME 2: ARCHIVES GALAXY                      */
-/* ======================================================= */
-.nebula-layer { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
-.img-nebula-asli { width: 100%; height: 100%; object-fit: cover; }
 
 .frame-tombol-bg { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 2; }
 .img-frame-bg { width: 100%; height: 100%; object-fit: fill; }
@@ -161,15 +388,36 @@ html, body {
 @keyframes blinkProfessional { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
 
-/* ======================================================= */
-/* [4] BLOCK FRAME 3: SHAPED IDEAS (KUNCI TOTAL SCROLL)    */
-/* ======================================================= */
+  /* ==========================================================================
+   [3] SHAPED IDEAS & [4] PAINTING SPACE
+   ========================================================================== */
 
-.bg-nebula-red { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
-.bg-nebula-red img { width: 100%; height: 100%; object-fit: cover; }
+
+/*[3] SHAPED IDEAS*/
+
+.bg-nebula-red { 
+  position: absolute; 
+  left: 0px; 
+  top: 0px; 
+  width: 430px; 
+  height: 966px; 
+  z-index: 1; }
+.bg-nebula-red img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; }
 
 .letter-shaped-title { position: absolute; left: 65px; top: 30px; width: 300px; height: 72px; z-index: 5; }
 .letter-shaped-title img { width: 100%; height: 100%; }
+
+/*[4] PAINTING SPACE */
+
+.bg-nebula-green { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
+.bg-nebula-green img { width: 100%; height: 100%; object-fit: cover; }
+
+.letter-frame-title { position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4; }
+.letter-frame-title img { width: 100%; height: 100%; }
+
 
 .btn-credit-atas-kanan { position: absolute; left: 330px; top: 15px; width: 85px; height: auto; z-index: 15; display: block; transition: transform 0.2s ease; }
 .btn-credit-atas-kanan:hover { transform: scale(1.08); }
@@ -178,19 +426,45 @@ html, body {
 .gemini-angel-fly-btn {
   position: absolute; left: 65px; top: 66px; width: 300px; height: 403px; z-index: 8; display: block; text-decoration: none; animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; transition: transform 0.2s ease;
 }
+
 .gemini-angel-fly-btn:hover { transform: scale(1.03); }
+
 .gemini-angel-fly-btn img { width: 100%; height: 100%; }
 
-.slider-zone-android { position: relative; left: 0px; top: 632px; width: 430px; height: 300px; z-index: 20; overflow: hidden; }
-.frame-slide-black-bg { position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none; }
-.frame-slide-black-bg img { width: 100%; height: 100%; object-fit: fill; }
+.frame-slide-black-bg { 
+  position: absolute; 
+  left: -498px; 
+  top: -1px; 
+  width: 2000px; 
+  height: 302px; 
+  z-index: 21; 
+  pointer-events: none; }
+
+.background-slide-black img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: fill; }
+
+.slider-zone-android { position: relative; left: 0px; top: 632px; width: 430px; height: 300px; z-index: 20; overflow: hidden; } 
 
 .slider-horizontal-scroll {
   position: absolute; left: 0px; top: 0px; width: 430px; height: 300px; z-index: 22; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center; padding-left: 25px; padding-right: 25px; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; box-sizing: border-box; -webkit-overflow-scrolling: touch;
 }
-.logo-box { display: inline-block !important; flex: 0 0 auto !important; width: 127.28px !important; height: 98.73px !important; margin-right: 20px !important; }
+.slider-horizontal-scroll::-webkit-scrollbar { display: block; !important; }
+
+.logo-box { display: inline-block !important; flex: 0 0 auto !important; width: 127.28px !important; height: 98.73px !important; margin-right: 20px !important; z-index: 70 }
+
 .logo-box img { width: 100%; height: 100%; object-fit: contain; }
-.slider-horizontal-scroll::-webkit-scrollbar { display: none !important; }
+
+.zoom-wrapper { width: 100%; transform-origin: top center; transition: transform 0.3s ease-in-out; position: relative; z-index: 2; }
+
+.zoom-wrapper.zoomed-active { transform: scale(1.5); }
+
+#main-photo-zoom-zone {
+  position: absolute; left: 50%; top: 450px; transform: translate(-50%, -50%); width: 410px; height: 310px; z-index: 99; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden;
+}
+#main-photo-zoom-zone img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+#main-photo-zoom-zone.fade-in-photo { opacity: 1; visibility: visible; }
 
 .text-pink-blink-bawah {
   position: absolute; left: 0px; bottom: 25px; width: 430px; text-align: center; color: #ff66cc; font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; z-index: 25; animation: kedipMbah 1s infinite alternate; pointer-events: none;
@@ -199,29 +473,29 @@ html, body {
 @keyframes terbangBidadariTinggi { 0% { opacity: 0; transform: translateY(100px); } 100% { opacity: 1; transform: translateY(0); } }
 
 
-/* ======================================================= */
-/* [5] BLOCK FRAME 4: PAINTING SPACE (LOCK SCROLL)         */
-/* ======================================================= */
-
-.bg-nebula-green { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
-.bg-nebula-green img { width: 100%; height: 100%; object-fit: cover; }
-.gemini-angel-fly-btn:hover { transform: scale(1.05); }
-.vertical-scroll-zone { width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-.vertical-scroll-zone::-webkit-scrollbar { display: none !important; }
-
-.zoom-wrapper { width: 100%; transform-origin: top center; transition: transform 0.3s ease-in-out; position: relative; z-index: 2; }
-.zoom-wrapper.zoomed-active { transform: scale(1.5); }
-
-
-/* ======================================================= */
-/* [6] BLOCK FRAME 5: MOMENTUM                             */
-/* ======================================================= */
-.app-container-momentum {
-  width: 430px; height: 966px; position: relative; overflow: hidden; background: #000000; margin: 0 auto; flex-shrink: 0;
+ /* ==========================================================================
+   [5] MOMENTUM
+   ========================================================================== */
+.nebula-blue-layer { 
+  position: absolute; 
+  left: 0px; 
+  top: 0px; 
+  width: 430px; 
+  height: 966px; 
+  z-index: 1; 
 }
 
+.img-nebula-blue {
+  width: 100%; 
+  height: 100%; 
+  display: block;
+  object-fit: cover; 
+}
 .momentum-header-title { position: absolute; left: 50px; top: 160px; width: 330px; height: auto; z-index: 5; }
-.img-momentum-title { width: 100%; height: auto; }
+
+.momentum-header-title { position: absolute; left: 50px; top: 120px; width: 330px; height: 82px; z-index: 5; }
+
+.img-momentum-title { width: 100%; height: 100%; object-fit: contain; }
 
 .momentum-nav-group { position: absolute; left: 115px; top: 300px; width: max-content !important; display: flex; flex-direction: column; gap: 30px !important; z-index: 4; }
 .btn-mom-item { width: 200px; height: 50px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
@@ -234,23 +508,20 @@ html, body {
 .btn-back-angel-momentum:hover { transform: scale(1.03); }
 .img-angel-back-click { width: 100%; height: auto; display: block; }
 
+ /* ==========================================================================
+   [6] MOVING FRAME
+   ========================================================================== */
+.nebula-violeet-layer { position: absolute; left: 0px; top: 0px; width: 430px; height: 966px; z-index: 1; }
+.img-nebula-violeet { width: 100%; height: 100%; object-fit: cover; }   
+.letter-moving-title { position: absolute; left: 29px; top: 30px; width: 375px; height: auto; z-index: 4; }
+.img-letter-moving { width: 100%; height: 100%; }
 
-/* ======================================================= */
-/* [7] BLOCK FRAME 6: MOVING FRAME (VIDEO PLAYER)          */
-/* ======================================================= */
-.app-container-moving {
-  width: 430px; height: 966px; position: relative; overflow: hidden; background: #000000; margin: 0 auto; flex-shrink: 0;
-}
-
-.letter-moving-title { position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4; }
-.letter-moving-title img { width: 100%; height: 100%; }
-
-.layer-angel-fly { position: absolute; left: 112px; top: 66px; width: 206.37px; height: 277px; z-index: 99; cursor: pointer; display: block; transition: transform 0.2s ease; animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; transition: transform 0.2s ease; }
+.layer-angel-fly { position: absolute; left: 100px; top: 90px; width: 218px; height: auto; z-index: 99; cursor: pointer; display: block; transition: transform 0.2s ease; animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; transition: transform 0.2s ease; }
 .layer-angel-fly:hover { transform: scale(1.03); }
 .layer-angel-fly img { width: 100%; height: auto; }
 
 .slider-zone-android-moving {
-  position: absolute; left: 0px; top: 630px; width: 430px; height: 250px; overflow: hidden; z-index: 20;
+  position: absolute; left: 0px; top: 680px; width: 430px; height: 250px; overflow: hidden; z-index: 20;
 }
 .frame-slide-black-bg-moving {
   position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none;
@@ -274,18 +545,14 @@ html, body {
 .video-box img { width: 100%; height: 100%; object-fit: cover; }
 .layer-angel-fly:hover { transform: scale(1.05); }
 .btn-back-pink-moving {
-  position: absolute; left: 86px; top: 893px; width: 259px; height: 40px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; text-align: center; color: #fa0ebf; text-decoration: none; z-index: 30; animation: kedipPinkManja 1.5s infinite alternate;
+  position: absolute; left: 86px; top: 915px; width: 259px; height: 40px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; text-align: center; color: #fa0ebf; text-decoration: none; z-index: 30; animation: kedipPinkManja 1.5s infinite alternate;
 }
-#rectangle4 { position: absolute; left: 11px; top: 380px; width: 409px; height: 230px; background: #1a1a1a; border-radius: 12px; overflow: hidden; z-index: 10; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6); }
+#rectangle4 { position: absolute; left: 11px; top: 400px; width: 409px; height: 230px; background: #1a1a1a; border-radius: 12px; overflow: hidden; z-index: 10; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6); }
 #main-video-player { width: 100% !important; height: 100% !important; object-fit: fill !important; display: block; }
 @keyframes kedipPinkManja { 0% { opacity: 1; } 100% { opacity: 0.4; } }
 
-/* ======================================================= */
-/* [8] BLOCK FRAME 7: FRAME PHOTO EXPAND (LOCK SCROLL)     */
-/* ======================================================= */
-
 .letter-frame-title { position: absolute; left: 65px; top: 30px; width: 299.21px; height: 66px; z-index: 4; }
-.letter-frame-title img { width: 100%; height: 100%; }
+.letter-frame-title img { width: 100%; height: 100%; object-fit: fill; }
 
 .gemini-angel-fly-btn {
     position: absolute;
@@ -293,7 +560,7 @@ html, body {
     top: 66px;
     width: 300px;
     height: 403px;
-    z-index: 8;
+    z-index: 5; /* Diturunkan sedikit agar tidak memblokir zona zoom */
     display: block;
     text-decoration: none;
     animation: terbangBidadariTinggi 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -301,116 +568,73 @@ html, body {
 .gemini-angel-fly-btn:hover { transform: scale(1.05); }
 
 #main-photo-zoom-zone {
-  position: absolute; left: 50%; top: 450px; transform: translate(-50%, -50%); width: 410px; height: 310px; z-index: 99; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden;
+  position: absolute; 
+  left: 50%; 
+  top: 400px; /* Disesuaikan sedikit posisi tengahnya */
+  transform: translate(-50%, -50%); 
+  width: 410px; 
+  height: 310px; 
+  z-index: 99; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  opacity: 0; 
+  visibility: hidden;
+  pointer-events: none; /* Biar gak menghalangi klik kalau lagi invisible */
+  transition: all 0.3s ease;
 }
 #main-photo-zoom-zone img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
-#main-photo-zoom-zone.fade-in-photo { opacity: 1; visibility: visible; }
 
-
-/* ======================================================= */
-/* [9] BLOCK FRAME 8: GROUP CREDITS & TOMBOL PITA BACK FIX */
-/* ======================================================= */
-.app-container-review {
-  width: 430px;
-  height: 966px;
-  background: #000000;
-  position: relative;
-  margin: 0 auto;
-  flex-shrink: 0;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important; /* BIAR AWAL BUKA LANGSUNG STAY DI TOP */
-  align-items: center !important;        /* GAMBAR OTOMATIS FILL FIT DI TENGAH */
-  overflow-y: auto !important;           /* AKTIFKAN JALUR SLIDE SAMPAI BAWAH */
-  overflow-x: hidden !important;         /* Kunci mati scroll kiri kanan */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+/* Kunci utama: Saat foto muncul, aktifkan pointer-events agar bisa diklik untuk close */
+#main-photo-zoom-zone.fade-in-photo { 
+  opacity: 1; 
+  visibility: visible; 
+  pointer-events: auto; 
 }
 
-/* --- SECTION CONNECTIONS --- */
-.connections-main-bg {
-  position: relative;
-  top: -18px;                
-  width: 430px;
-  height: 967px;             
-  background: url('./images/connection.png') no-repeat;
-  background-size: 100% 100%;
-  z-index: 1;
-}
+.slider-zone-android-2 { position: absolute; left: 0px; top: 632px; width: 430px; height: 300px; z-index: 20; overflow: hidden; }
+.frame-slide-bg { position: absolute; left: -498px; top: -1px; width: 2000px; height: 302px; z-index: 21; pointer-events: none; }
+.frame-slide-bg img { width: 100%; height: 100%; object-fit: fill; }
 
-#pitaback-action {
+.slider-horizontal {
   position: absolute; 
-  left: 45px; 
-  top: 162px; 
-  width: 100px; 
-  height: 44px;
-  background: url('./images/pitaback2d1.png') no-repeat; background-size: 100% 100%;
-  z-index: 10; 
+  left: 0px; 
+  top: 0px; 
+  width: 430px; 
+  height: 300px; 
+  z-index: 22; 
+  display: flex !important; 
+  flex-direction: row !important; 
+  flex-wrap: nowrap !important; 
+  align-items: center; 
+  padding-left: 25px; 
+  padding-right: 25px; 
+  overflow-x: auto !important; /* Paksa scroll horizontal aktif */
+  overflow-y: hidden !important; 
+  white-space: nowrap !important; 
+  box-sizing: border-box; 
+  -webkit-overflow-scrolling: touch; /* Biar smooth di Android/iOS */
+}
+.slider-horizontal::-webkit-scrollbar { display: none !important; } /* Sembunyikan bar scroll biar rapi */
+
+/* TIKET EMAS: Aturan ukuran box foto slider Abang biar rapi berjajar */
+.logo-box {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 140px;
+  height: 140px;
+  margin-right: 15px;
+  border-radius: 10px;
+  overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
 }
-
-.back-link-induk {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-#rectangle1-gaib { position: absolute; left: 180px; top: 485px; width: 62px; height: 95px; background: transparent; z-index: 10; cursor: pointer; }
-#rectangle2-gaib { position: absolute; left: 180px; top: 590px; width: 62px; height: 93px; background: transparent; z-index: 10; cursor: pointer; }
-#rectangle3-gaib { position: absolute; left: 184px; top: 694px; width: 58px; height: 79px; background: transparent; z-index: 10; cursor: pointer; }
-.gaib-link-conn { display: block; width: 100%; height: 100%; }
-
-.text-pink-blink-conn {
-  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
-  font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 0.18em;
-  color: #FF00E5; text-align: center; white-space: nowrap; z-index: 5;
-  text-shadow: 0 0 10px rgba(255, 0, 229, 0.8); animation: neonBlinkConn 1.5s infinite alternate;
-}
-@keyframes neonBlinkConn { 0% { opacity: 0.3; } 100% { opacity: 1; } }
-
-/* --- SECTION WORKMATE --- */
-.workmate-content-area {
-  position: relative; 
-  top: 380px; 
-  left: 20px; 
-  width: 390px; 
-  height: 500px; 
-  overflow-y: auto; 
-  z-index: 10; 
-  padding-right: 10px;
-}
-.workmate-title-img { 
-  width: 250px; 
-  margin-bottom: 20px; }
-.workmate-paragraph { 
-  color: #e0e0e0; 
-  font-size: 14px; 
-  line-height: 1.6; 
-  margin-bottom: 20px; 
-  text-align: justify; }
-
-/* --- SECTION CREDITS MINE --- */
-.btn-back-pita-credits { position: absolute; left: 20px; top: 30px; width: 105px; height: 44px; z-index: 20; }
-.btn-back-pita-credits img { width: 100%; height: 100%; object-fit: contain; }
-.credits-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; z-index: 10; }
-.credits-list-box { color: #cccccc; font-size: 14px; line-height: 2.5; }
-.credits-list-box span { display: block; font-size: 18px; color: #ffffff; font-weight: bold; }
-
-/* --- SECTION CREDITS ARCHIVES --- */
-.credit-main-bg { position: absolute; left: 0; top: 0; width: 430px; height: 966px; background: url('./images/credit ARCHIVES.png') no-repeat; background-size: 100% 100%; z-index: 1; }
-#rectangle5-gaib { position: absolute; left: 276px; top: 185px; width: 144px; height: 607px; background: transparent; z-index: 10; cursor: pointer; }
-.gaib-link { display: block; width: 100%; height: 100%; }
-
-.text-pink-rotate-credit {
-  position: absolute; left: 410px; top: 561px; width: 300px; transform: rotate(90deg); transform-origin: left top;
-  font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.22em; color: #FF00E5; z-index: 5;
-  text-shadow: 0 0 8px rgba(255, 0, 229, 0.7); animation: textBlinkPinky 1.5s infinite alternate; white-space: nowrap;
-}
-@keyframes textBlinkPinky { 0% { opacity: 0.3; } 100% { opacity: 1; } }
-
-
+.logo-box:hover { transform: scale(1.05); }
+.logo-box img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ======================================================== */
-/* [10] BLOCK MASTER DATA UKURAN SLIDER REVIEWS             */
+/* BLOCK MASTER DATA UKURAN SLIDER REVIEWS             */
 /* ======================================================== */
 
 /* --- SHAPED IDEAS SECTION (11 Proyek) --- */
@@ -439,8 +663,8 @@ html, body {
 
 .review-bigmall-img { width: 430px; height: 1156px; display: block; }
 .review-clubmild-img { width: 430px; height: 1920px; display: block; }
-.review-isiana-img-1 { width: 430px; height: 1393 px; display: block; }
-.review-isiana-img-2 { width: 430px; height: 1131 px; display: block; }
+
+.review-isiana-img-2 { width: 430px; height: 1691px; display: block; }
 .review-masplane-img { width: 430px; height: 918px; display: block; }
 
 /* Review Unity (Pecahan 2 Gambar) */
@@ -458,7 +682,97 @@ html, body {
 .sound-part-one-img { width: 430px; height: 972px; display: block; }
 .sound-part-two-img { width: 430px; height: 1133px; display: block; }
 
+   .app-container-review {
+  width: 430px;
+  height: 966px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  /* --- KODE KERAMAT DARI HOME (PENGUNCI BATAS BAWAH AGAR TIDAK LOSS KE 25%) --- */
+  min-width: 430px !important;   /* Memaksa browser tidak boleh mengecilkan lebar dari 430px */
+  min-height: 966px !important;  /* Memaksa browser tidak boleh mengecilkan tinggi dari 966px */
+  max-width: 430px !important;   /* Batas atas */
+  max-height: 966px !important;  /* Batas atas */       
+  }
+
 .btn-back-pita-timeline {
   position: absolute; left: -15px; top: 24px; width: 105px; height: 44px; z-index: 999; display: block;
 }
 .btn-back-pita-timeline img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ======================================================== */
+/* 7. FRAME MOMENT      */
+/* ======================================================== */
+
+.nebula-yellow-layer { 
+  position: absolute; 
+  left: 0px; 
+  top: 0px; 
+  width: 430px; 
+  height: 966px; 
+  z-index: 1; 
+}
+
+.img-nebula-yellow {
+  width: 100%; 
+  height: 100%; 
+  display: block;
+  object-fit: cover; 
+}
+.vertical-scroll-zone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 430px;
+  height: 966px;
+  z-index: 10;
+  overflow-y: auto !important;  /* Paksa aktifkan scroll atas bawah */
+  overflow-x: hidden;           /* Kunci geser kiri kanan sebelum zoom */
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+/* Sembunyikan scrollbar bawaan agar desain tetap estetik dan bersih */
+.vertical-scroll-zone::-webkit-scrollbar {
+  display: none !important;
+}
+
+.zoom-wrapper {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+}
+
+/* Kunci utama agar gambar pas 100% dan tidak luber meluber ke samping */
+.zoom-wrapper img {
+  width: 100% !important;
+  max-width: 430px !important;
+  height: auto; /* Biar aspek rasio tinggi gambar tetap proporsional */
+  display: block;
+}
+
+/* Efek saat double click zoom aktif */
+.zoom-wrapper.zoomed-active {
+  transform: scale(1.8); /* Perbesaran zoom */
+}
+
+.text-pink-blink-review {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 430px;
+  text-align: center;
+  z-index: 99;
+  color: #ff66b2;
+  font-weight: bold;
+  font-size: 12px;
+  pointer-events: none;
+  letter-spacing: 1px;
+}
