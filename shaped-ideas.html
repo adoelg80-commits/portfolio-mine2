@@ -25,11 +25,11 @@
         <a href="./archives.html" class="gemini-angel-fly-btn">
             <img src="./images/gemini fly crop tanpa bulan.png" alt="Gemini Angel Fly Back">
         </a>
-
+         
         <div class="slider-zone-android">
             
             <div class="frame-slide-black-bg">
-                <img src="./images/BACKROND SLIDE BLACK.png" alt="Background Slide Black">
+                <img src="./images/BACKROND SLIDE BLACK.png" alt="background-slide-black">
             </div>
 
             <div class="slider-horizontal-scroll">
@@ -129,48 +129,26 @@
                 slider.scrollLeft = scrollLeft - walk;
             });
         }
-    </script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Cari elemen gambar bidadarinya
-    const karakterEneng = document.querySelector('.gemini-angel-fly-btn');
+ 
+
+    function autoLockViewport() {
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
     
-    // 2. Cari elemen tombol Back Abang. 
-    // Kita targetkan tag tautan <a> yang mengarah ke archives.html
-    const tombolBack = document.querySelector('a[href="archives.html"]');
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
 
-    if (tombolBack && karakterEneng) {
-        tombolBack.addEventListener('click', function(e) {
-            // Tahan!!! Jangan pindah halaman dulu, biarkan si Eneng akting turun
-            e.preventDefault(); 
-            
-            // Suntik kelas CSS turun-lagi ke tubuh bidadari
-            karakterEneng.classList.add('turun-lagi'); 
-            
-            // Beri waktu 800 milidetik (0.8 detik) buat dia merosot turun, baru pindah halaman
-            setTimeout(function() {
-                window.location.href = "archives.html";
-            }, 800);
-        <script>
-<script>
-    function lockFitLayar() {
-        const container = document.querySelector('.app-container');
-        if (!container) return;
-
-        // Hitung rasio layar HP Abang secara real-time
-        const skalaX = window.innerWidth / 430;
-        const skalaY = window.innerHeight / 932;
-
-        // Ambil skala terkecil biar PAS dan GAK LUBER
-        const skalaFinal = Math.min(skalaX, skalaY);
-
-        // Paksa kunci mati ukurannya di HP!
-        container.style.transform = `scale(${skalaFinal})`;
-    }
-
-    // Jalankan otomatis pas web dibuka dan pas layar berubah
-    window.addEventListener('DOMContentLoaded', lockFitLayar);
-    window.addEventListener('resize', lockFitLayar);
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
 </script>
 </body>
 </html>

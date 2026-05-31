@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Review - Freelancer Contests Design</title>
     <link rel="stylesheet" href="index.css"> 
 </head>
@@ -98,7 +98,24 @@
                 zone.scrollLeft = 0;
             }
         });
+        function autoLockViewport() {
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
+
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
     </script>
-<script src="script.js"></script>
 </body>
 </html>

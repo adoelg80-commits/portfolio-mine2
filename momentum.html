@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MINE - Momentum</title>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -10,8 +10,8 @@
 
     <div class="app-container">
         
-        <div class="nebula-violet-layer">
-            <img src="./images/Background nebula violeet.png" alt="Nebula Violet" class="img-nebula-violet-asli">
+        <div class="nebula-blue-layer">
+            <img src="./images/Background nebula blue.png" alt="Nebula Blue" class="img-nebula-blue">
         </div>
 
         <div class="frame-tombol-bg">
@@ -45,25 +45,23 @@
     </div>
 <script>
     function autoLockViewport() {
-        // Mencari semua class yang berawalan "app-container"
-        const containers = document.querySelectorAll('[class^="app-container"]');
-        const targetWidth = 430;
-        const targetHeight = 932; 
-        
-        const scaleX = window.innerWidth / targetWidth;
-        const scaleY = window.innerHeight / targetHeight;
-        
-        // Mengunci skala terkecil agar pas di frame HP
-        const finalScale = Math.min(scaleX, scaleY, 1); 
-        
-        containers.forEach(container => {
-            container.style.transform = `scale(${finalScale})`;
-        });
-    }
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
 
-    // Jalankan otomatis saat web dimuat dan saat layar di-resize
-    window.addEventListener('resize', autoLockViewport);
-    window.addEventListener('DOMContentLoaded', autoLockViewport);
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
     </script>
 </body>
 </html>

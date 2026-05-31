@@ -2,9 +2,21 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review - BAF Corporate Series</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Review - Master Template Series</title>
     <link rel="stylesheet" href="index.css"> 
+    <style>
+        /* Trik rahasia mengunci skala container agar pas di paling atas (TOP) desktop */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .app-container-review {
+            transform-origin: top center !important; /* PAKSA KUNCI DI ATAS, GAK BAKAL AMBLAS KE TENGAH */
+        }
+    </style>
 </head>
 <body>
 
@@ -14,8 +26,10 @@
             <img src="./images/pita back.png" alt="Back to Painting Space">
         </a>
 
+        <!-- Zona Scroll Vertikal -->
         <div class="vertical-scroll-zone">
             <div class="zoom-wrapper backend-baf-stack">
+                <!-- Gunakan class gambar sesuai master CSS data ukuran -->
                 <img src="./images/BAF balikpapan.png" class="review-baf-img-1" alt="BAF Part 1">
                 <img src="./images/BAF surabaya.png" class="review-baf-img-2" alt="BAF Part 2">
             </div>
@@ -28,16 +42,37 @@
     </div>
 
     <script>
+        // === 1. ENGINE AUTO FIT LAYAR (STAY ON TOP) ===
+        function lockFitReviewLayar() {
+            const container = document.querySelector('.app-container-review');
+            if (!container) return;
+
+            const skalaX = window.innerWidth / 430;
+            const skalaY = window.innerHeight / 966;
+
+            const skalaFinal = Math.min(skalaX, skalaY);
+            container.style.transform = `scale(${skalaFinal})`;
+            
+            // Tengahkan container secara horizontal di desktop
+            container.style.position = 'relative';
+            container.style.margin = '0 auto';
+        }
+
+        window.addEventListener('DOMContentLoaded', lockFitReviewLayar);
+        window.addEventListener('resize', lockFitReviewLayar);
+
+        // === 2. ENGINE DRAG SCROLL & ZOOM ===
         const zone = document.querySelector('.vertical-scroll-zone');
         const wrapper = document.querySelector('.zoom-wrapper');
-        const img = document.querySelector('.baf-part-one'); 
+        // Kunci perbaikan bug: Deteksi gambar pertama yang ada di dalam wrapper
+        const firstImg = wrapper.querySelector('img'); 
         
         let isDown = false;
         let startX, startY;
         let scrollLeft, scrollTop;
         let isZoomed = false;
 
-        // --- 1. MOUSE DRAG ENGINE ---
+        // MOUSE DRAG ENGINE (Biar desktop bisa ditarik pakai mouse atas-bawah)
         zone.addEventListener('mousedown', (e) => {
             if (e.target.tagName === 'IMG') e.preventDefault(); 
             isDown = true;
@@ -69,7 +104,7 @@
             zone.scrollTop = scrollTop - walkY;
         });
 
-        // --- 2. DOUBLE CLICK ZOOM ENGINE ---
+        // DOUBLE CLICK ZOOM ENGINE
         zone.addEventListener('dblclick', (e) => {
             isZoomed = !isZoomed;
             if (isZoomed) {
@@ -77,7 +112,8 @@
                 const offsetX = e.clientX - rect.left + zone.scrollLeft;
                 const offsetY = e.clientY - rect.top + zone.scrollTop;
                 
-                const pctX = (offsetX / img.offsetWidth) * 100;
+                const targetWidth = firstImg ? firstImg.offsetWidth : 430;
+                const pctX = (offsetX / targetWidth) * 100;
                 const pctY = (offsetY / wrapper.offsetHeight) * 100; 
                 wrapper.style.transformOrigin = `${pctX}% ${pctY}%`;
                 
@@ -97,7 +133,24 @@
                 zone.scrollLeft = 0;
             }
         });
+        function autoLockViewport() {
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
+
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
     </script>
-<script src="script.js"></script>
 </body>
 </html>

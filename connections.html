@@ -8,9 +8,10 @@
 </head>
 <body>
 
-    <div class="app-container-review">
-        
+    <div class="app-container">
         <div class="connections-main-bg">
+            <img src="./images/connection.png" alt="connect" class="img-connections-main">
+        </div>
             
             <div id="pitaback-action">
                 <a href="index.html" class="back-link-induk"></a>
@@ -30,24 +31,24 @@
         </div>
     </div>
 <script>
-    function autoLockViewport() {
-        const containers = document.querySelectorAll('[class^="app-container"]');
-        const targetWidth = 430;
-        const targetHeight = 932; 
-        
-        const scaleX = window.innerWidth / targetWidth;
-        const scaleY = window.innerHeight / targetHeight;
-        
-        const finalScale = Math.min(scaleX, scaleY, 1); 
-        
-        containers.forEach(container => {
-            container.style.transform = `scale(${finalScale})`;
-            container.style.transformOrigin = 'center center';
-        });
-    }
+   function autoLockViewport() {
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
 
-    window.addEventListener('resize', autoLockViewport);
-    window.addEventListener('DOMContentLoaded', autoLockViewport);
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
 </script>
 </body>
 </html>

@@ -2,20 +2,20 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MINE - Moving Frame Video</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <div class="app-container-moving">
+    <div class="app-container">
         
-        <div class="layer-bg-nebula">
-            <img src="./images/Background nebula violeet.png" alt="Nebula Violet">
+        <div class="nebula-violeet-layer">
+            <img src="./images/Background nebula violeet.png" alt="Nebula Violeet" class="img-nebula-violeet">
         </div>
 
         <div class="letter-moving-title">
-            <img src="./images/Text Moving frame video.png" alt="Moving frame video">
+            <img src="./images/Text Moving frame video.png" alt="Moving Frame" class="img-letter-moving">
         </div>
 
         <a href="./momentum.html" class="layer-angel-fly">
@@ -60,20 +60,24 @@
     </div>
 
     <script>
-    // ENGINE 1: PENGUNCI UKURAN LAYAR HP ITEL ABANG
-    function lockFitLayar() {
-        const container = document.querySelector('.app-container-moving');
-        if (!container) return;
+   function autoLockViewport() {
+    const containers = document.querySelectorAll('[class^="app-container"]');
+    const targetWidth = 430;
+    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
+    const finalScale = Math.min(scaleX, scaleY); 
+    
+    containers.forEach(container => {
+        container.style.transform = `scale(${finalScale})`;
+    });
+}
 
-        const skalaX = window.innerWidth / 430;
-        const skalaY = window.innerHeight / 932;
-        const skalaFinal = Math.min(skalaX, skalaY, 1);
-
-        container.style.transform = `scale(${skalaFinal})`;
-        container.style.transformOrigin = 'center center';
-    }
-    window.addEventListener('resize', lockFitLayar);
-    window.addEventListener('DOMContentLoaded', lockFitLayar);
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
 
     // REVISI POINT 2: Fungsi playVideo diubah biar langsung memutar link YouTube resmi (Bukan folder gambar lokal!)
     const player = document.getElementById('main-video-player');
