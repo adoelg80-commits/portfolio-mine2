@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Review - Unity Pitstop Series</title>
     <link rel="stylesheet" href="index.css"> 
 </head>
@@ -98,25 +98,39 @@
                 zone.scrollLeft = 0;
             }
         });
-         function lockFitLayar() {
-        const container = document.querySelector('.app-container');
-        if (!container) return;
+  function autoLockViewport() {
+    const container = document.querySelector('.app-container-review') || document.querySelector('.app-container');
+    if (!container) return;
 
-        // Hitung rasio layar HP Abang secara real-time
-        const skalaX = window.innerWidth / 430;
-        const skalaY = window.innerHeight / 932;
+    const targetWidth = 430;
+    const targetHeight = 966;
+    
+    const scaleX = window.innerWidth / targetWidth;
+    const scaleY = window.innerHeight / targetHeight;
+    
+    // 1. Dapatkan hitungan skala asli dari browser Opera/HP saat ini
+    let skalaAsli = Math.min(scaleX, scaleY);
+    
+    // 2. AKTIFKAN SYSTEM TITIK DASAR Z (LOGIKA MASTER ABANG DOEL)
+    let finalScale;
 
-        // Ambil skala terkecil biar PAS dan GAK LUBER
-        const skalaFinal = Math.min(skalaX, skalaY);
-
-        // Paksa kunci mati ukurannya di HP!
-        container.style.transform = `scale(${skalaFinal})`;
+    if (skalaAsli <= 0.80) {
+        // Jika browser mencoba mengecil atau berada di bawah 80%, 
+        // Paksa gembok mutlak di angka 67% (0.67 adalah TITIK DASAR Z, anti melorot ke 25%)
+        finalScale = 0.67;
+    } else {
+        // Begitu masuk angka 80% ke atas, katup zoom-in aktif!
+        // Batasi pembesaran atasnya mentok di 5.0 (500%) biar gak eror luber
+        finalScale = Math.min(skalaAsli, 5.0);
     }
+    
+    // 3. Eksekusi ke rumah container
+    container.style.transform = `scale(${finalScale})`;
+    container.style.transformOrigin = 'top center'; // Mengunci posisi stabil rata tengah atas
+}
 
-    // Jalankan otomatis pas web dibuka dan pas layar berubah
-    window.addEventListener('DOMContentLoaded', lockFitLayar);
-    window.addEventListener('resize', lockFitLayar);
+window.addEventListener('resize', autoLockViewport);
+window.addEventListener('DOMContentLoaded', autoLockViewport);
     </script>
-<script src="script.js"></script>
 </body>
 </html>
