@@ -763,16 +763,4 @@
   transform: scale(1.8); /* Perbesaran zoom */
 }
 
-.text-pink-blink-review {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 430px;
-  text-align: center;
-  z-index: 99;
-  color: #ff66b2;
-  font-weight: bold;
-  font-size: 12px;
-  pointer-events: none;
-  letter-spacing: 1px;
-}
+
