@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review - Isiana Cafe & Foto Series</title>
     <link rel="stylesheet" href="index.css"> 
-    <style>
-        /* Trik rahasia mengunci skala container agar pas di paling atas (TOP) desktop */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            overflow: hidden;
-        }
-        .app-container-review {
-            transform-origin: top center !important; /* PAKSA KUNCI DI ATAS, GAK BAKAL AMBLAS KE TENGAH */
-        }
-    </style>
 </head>
 <body>
 
@@ -141,7 +129,7 @@
     const scaleY = window.innerHeight / targetHeight;
     
     // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
-    const finalScale = Math.min(scaleX, scaleY); 
+    const finalScale = Math.min(scaleX, scaleY 1); 
     
     containers.forEach(container => {
         container.style.transform = `scale(${finalScale})`;
