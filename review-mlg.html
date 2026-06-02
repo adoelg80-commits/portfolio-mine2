@@ -29,93 +29,90 @@
     </div>
 
     <script>
-        const zone = document.querySelector('.vertical-scroll-zone');
-        const wrapper = document.querySelector('.zoom-wrapper');
-        const img = document.querySelector('.mlg-part-one'); 
-        
-        let isDown = false;
-        let startX, startY;
-        let scrollLeft, scrollTop;
-        let isZoomed = false;
-
-        // --- 1. MOUSE DRAG ENGINE ---
-        zone.addEventListener('mousedown', (e) => {
-            if (e.target.tagName === 'IMG') e.preventDefault(); 
-            isDown = true;
-            zone.style.cursor = 'grabbing';
-            startX = e.pageX - zone.offsetLeft;
-            startY = e.pageY - zone.offsetTop;
-            scrollLeft = zone.scrollLeft;
-            scrollTop = zone.scrollTop;
-        });
-
-        zone.addEventListener('mouseleave', () => {
-            isDown = false;
-            zone.style.cursor = isZoomed ? 'zoom-out' : 'grab';
-        });
-
-        zone.addEventListener('mouseup', () => {
-            isDown = false;
-            zone.style.cursor = isZoomed ? 'zoom-out' : 'grab';
-        });
-
-        zone.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - zone.offsetLeft;
-            const y = e.pageY - zone.offsetTop;
-            const walkX = (x - startX) * 1.5; 
-            const walkY = (y - startY) * 1.5; 
-            zone.scrollLeft = scrollLeft - walkX;
-            zone.scrollTop = scrollTop - walkY;
-        });
-
-        // --- 2. DOUBLE CLICK ZOOM ENGINE ---
-        zone.addEventListener('dblclick', (e) => {
-            isZoomed = !isZoomed;
-            if (isZoomed) {
-                const rect = zone.getBoundingClientRect();
-                const offsetX = e.clientX - rect.left + zone.scrollLeft;
-                const offsetY = e.clientY - rect.top + zone.scrollTop;
-                
-                const pctX = (offsetX / img.offsetWidth) * 100;
-                const pctY = (offsetY / wrapper.offsetHeight) * 100; 
-                wrapper.style.transformOrigin = `${pctX}% ${pctY}%`;
-                
-                wrapper.classList.add('zoomed-active');
-                zone.style.overflowX = 'auto'; 
-                zone.style.cursor = 'zoom-out';
-                
-                setTimeout(() => {
-                    zone.scrollTop = offsetY * 1.8 - (zone.offsetHeight / 2);
-                    zone.scrollLeft = offsetX * 1.8 - (zone.offsetWidth / 2);
-                }, 50);
-            } else {
-                wrapper.style.transformOrigin = 'top center';
-                wrapper.classList.remove('zoomed-active');
-                zone.style.overflowX = 'hidden';
-                zone.style.cursor = 'grab';
-                zone.scrollLeft = 0;
-            }
-        });
-        function autoLockViewport() {
-    const containers = document.querySelectorAll('[class^="app-container"]');
-    const targetWidth = 430;
-    const targetHeight = 966; // Samakan base height-nya dengan shaped ideas
+    const zone = document.querySelector('.vertical-scroll-zone');
+    const wrapper = document.querySelector('.zoom-wrapper');
+    const img = document.querySelector('.mlg-part-one'); 
     
-    const scaleX = window.innerWidth / targetWidth;
-    const scaleY = window.innerHeight / targetHeight;
-    
-    // --- REVISI MATA JŪBI: BUANG ANGKA 1 DI UJUNG RAMALAN ---
-    const finalScale = Math.min(scaleX, scaleY); 
-    
-    containers.forEach(container => {
-        container.style.transform = `scale(${finalScale})`;
+    let isDown = false;
+    let startX, startY;
+    let scrollLeft, scrollTop;
+    let isZoomed = false;
+
+    // --- 1. MOUSE DRAG ENGINE ---
+    zone.addEventListener('mousedown', (e) => {
+        if (e.target.tagName === 'IMG') e.preventDefault(); 
+        isDown = true;
+        zone.style.cursor = 'grabbing';
+        startX = e.pageX - zone.offsetLeft;
+        startY = e.pageY - zone.offsetTop;
+        scrollLeft = zone.scrollLeft;
+        scrollTop = zone.scrollTop;
     });
-}
 
-window.addEventListener('resize', autoLockViewport);
-window.addEventListener('DOMContentLoaded', autoLockViewport);
-    </script>
+    // --- MANTRA KARET: JIKA MOUSE LEPAS / KELUAR AREA ---
+    function resetKaretPegas() {
+        isDown = false;
+        zone.style.cursor = isZoomed ? 'zoom-out' : 'grab';
+        
+        // Jika sedang TIDAK ZOOM, paksa posisi scroll balik mental ke atas (Top) secara smooth
+        if (!isZoomed) {
+            zone.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth' // Efek membal halus kayak karet
+            });
+        }
+    }
+
+    zone.addEventListener('mouseleave', resetKaretPegas);
+    zone.addEventListener('mouseup', resetKaretPegas);
+
+    // Engine geser
+    zone.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - zone.offsetLeft;
+        const y = e.pageY - zone.offsetTop;
+        const walkX = (x - startX) * 1.5; 
+        const walkY = (y - startY) * 1.5; 
+        zone.scrollLeft = scrollLeft - walkX;
+        zone.scrollTop = scrollTop - walkY;
+    });
+
+    // --- 2. DOUBLE CLICK ZOOM ENGINE (MERDEKA) ---
+    zone.addEventListener('dblclick', (e) => {
+        isZoomed = !isZoomed;
+        if (isZoomed) {
+            const rect = zone.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left + zone.scrollLeft;
+            const offsetY = e.clientY - rect.top + zone.scrollTop;
+            
+            const pctX = (offsetX / img.offsetWidth) * 100;
+            const pctY = (offsetY / wrapper.offsetHeight) * 100; 
+            wrapper.style.transformOrigin = `${pctX}% ${pctY}%`;
+            
+            wrapper.classList.add('zoomed-active');
+            zone.style.overflowX = 'auto'; 
+            zone.style.cursor = 'zoom-out';
+            
+            setTimeout(() => {
+                zone.scrollTop = offsetY * 1.8 - (zone.offsetHeight / 2);
+                zone.scrollLeft = offsetX * 1.8 - (zone.offsetWidth / 2);
+            }, 50);
+        } else {
+            // Pas dblclick matiin zoom, otomatis nge-snap balik ke top center murni
+            wrapper.style.transformOrigin = 'top center';
+            wrapper.classList.remove('zoomed-active');
+            zone.style.overflowX = 'hidden';
+            zone.style.cursor = 'grab';
+            
+            zone.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+</script>
 </body>
 </html>
